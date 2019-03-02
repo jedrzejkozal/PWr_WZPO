@@ -130,6 +130,52 @@ Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
 \section{Analiza wymagań użytkownika}
 %4. Analiza wymagań użytkownika, w której można zastosować poznane w ramach przedmiotu ”inżynieria oprogramowania” przypadki użycia (ang. use case). Ważne jest zrozumienie jak system jest widziany z punktu widzenia użytkownika. Można przedstawić w tym punkcie główny scenariusz działania oraz najciekawsze scenariusze poboczne (czyli tzw. nietypowe sytuacje).
 
+\newcommand{\SubItem}[1]{
+    {\setlength\itemindent{15pt} \item[-] #1}
+}
+
+Przewiduje się następujące przypadki użycia:
+\begin{itemize}
+	\item konfiguracja i przeprowadzenie eksperymentu z wykorzystaniem:
+	\begin{itemize}
+		\item dostarczonych algorytmów:
+		\begin{itemize}
+			\item klasyfikacji
+			\item regresji		
+		\end{itemize}
+		\item metod uzyskiwania wyników:
+		\begin{itemize}
+			\item K-krotnej walidacji krzyżowej
+			\item 5-2 walidacji krzyżowej
+			\item metoda "HoldOut"
+		\end{itemize}
+		\item wybranych metryk:
+		\begin{itemize}
+			\item dokładność
+			\item czułość
+			\item swoistość
+			\item krzywa ROC
+			\item pole pod krzywą ROC
+			\item F1-score
+			\item G-mean
+			\item błąd średniokwadratowy
+		\end{itemize}
+		\item funkcjonalności do analizy wyników:
+		\begin{itemize}
+			\item zapisywania wyników
+			\item generowania i zapisywania wyników
+			\item testowania hipotez i przeprowadzania testów post-hoc
+		\end{itemize}
+	\end{itemize}
+	\item przeprowadzania analizy zbioru uczącego:
+	\begin{itemize}
+		\item Analizy niezbalansowania zbioru
+		\item Estymacji VC-dim
+	\end{itemize}
+\end{itemize}
+
+Nietypowe sytuacje mogą dotyczyć przypadków w których użytkownik nie poda właściwych danych, co może skutkować wystąpieniem wyjątków w modułach konfigurujących pracę systemu. Przykładowo użytkownik dla algorytmu klasyfikacji może podać metrykę przewidzianą dla regresji. Innym przypadkiem z tej kategorii może być podanie jako argumentu referencji do NullPointera. Są to problemy, które powinny być rozwiązywane przez moduły konfigurujące pracę systemu. Wyjątkowa sytuacja, która nie może być wykryta na poziomie konfiguracji systemu to podanie zbioru uczącego zawierającego mniej próbek, niż jest to wymagane przez algorytmy walidacji krzyżowej. Przykładowo dla 10-krotnej walidacji musi zostać utworzone 10 podzbiorów datasetu co oznacza, że zbiór uczący musi posiadać co najmniej 10 próbek. Sprawdzanie tego typu scenariuszy musi odbywać się na poziomie klasy realizującej walidację krzyżową. Nie stosowanie się do tego rozwiązania powodowałoby mieszanie informacji i łamanie dobrych zasad projektowania.
+
 \section{Modele systemu z różnych perspektyw}
 %5. Modele systemu z różnych perspektyw to najważniejsza część projektu, w której posiłkujemy się językiem UML do przedstawienia struktury i zachowania naszego systemu. Podstawowym diagramem do opisu struktury jest diagram klas, natomiast zachowanie systemu można zobrazować diagramem sekwencji. W razie potrzeby wykonujemy inne rysunki wyjaśniające nasze idee i koncepcje. Nie boimy się przedstawiać alternatywnych rozwiązań jakiegoś problemu i analizować konsekwencje. Rysunkom muszą towarzyszyć słowne komentarze i wyjaśnienia, dopiero te dwa elementy (grafika + tekst) ułatwiają zrozumienie intencji autora. Wszelkie decyzje projektowe powinny być uzasadnione. Właściwe projektowanie można zacząć od naszkicowania współpracy obiektów w celu realizacji scenariuszy działania systemu opisanych na etapie analizy. W dalszej kolejności przypisujemy obiekty do poszczególnych klas. Wtedy często może się okazać, że potrzebnych jest więcej klas niż założyliśmy wstępnie. Należy zwrócić uwagę aby modele systemu z różnych perspektyw były spójne.
 
