@@ -77,10 +77,55 @@ Dopisać wykorzystane narzędzia.
 \section{Wstępny opis słowny}
 % 2. Wstępny opis słowny dotyczy tego co system robi, a nie jak. Jest to wyjściowy model werbalny działania systemu, może być on wynikiem wywiadu z potencjalnymi użytkownikami. Zwracamy uwagę na ważne pojęcia, które pojawiły się w opisie, staramy się je ściślej zdefiniować i usystematyzować. Pojęcia te (głównie rzeczowniki) można przedstawić w formie słownika (glosariusza).
 
+Celem zaprojektowanego systemu jest badanie skuteczności wybranych algorytmów \textbf{uczenia nadzorowanego} - rodziny metod należących do dziedziny \textbf{uczenia maszynowego}.
+Framework wspiera zarówno \textbf{metody klasyfikacji}, jak i \textbf{regresji}. Jakość analizowanych metod określana jest za pomocą wybranych przez użytkownika \textbf{miar}. W zależności od konfiguracji eksperymentu badania przeprowadzane są z wykorzystaniem \textbf{walidacji krzyżowej} o wybranych parametrach lub klasycznej metody \textbf{holdout}.
+
+Testy wykonywane są na sparametryzowanej przez użytkownika \textbf{bazie danych}, która może podlegać przeprowadzanej przez framework analizie, obejmującej na przykład wykrywanie jej niezbalansowania.
+
+Aplikacja umożliwia porównanie algorytmów na drodze \textbf{statystyczna analiza wyników}.
+Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
 
 
 \section{Słownik pojęć z dziedziny problemu}
 %3. Słownik pojęć z dziedziny problemu ułatwia systematykę pojęć z dziedziny problemu, który rozwiązujemy. Przedstawia wyłowione z opisu słownego określenia, które przełożą się następnie na składniki oprogramowania takie jak np. klasy. Zdarza się, że do reprezentacji niektórych pojęć potrzeba kilku klas. Często w systemie pojawią się także klasy nie odpowiadające bezpośrednio terminom w słowniku, a dotyczące dziedziny implementacji.
+
+\begin{itemize}
+	\item 
+	\textbf{Uczenie nadzorowane} -- zadanie \textbf{uczenia maszynowego}, w którym dane uczące zawierają wektory wejściowe algorytmu wraz z jego oczekiwanym wyjściem. [BISHOP]
+	
+	\item 
+	\textbf{Uczenie maszynowe} -- dziedzina, której celem jest optymalizacja parametrów algorytmu na podstawie posiadanych danych. Ocena jakości algorytmów dokonywana jest z wykorzystaniem przyjętej funkcji strat.
+	[ALPAYDIN]
+	
+	\item 
+	\textbf{Algorytm klasyfikacji} -- 
+	
+	\item 
+	\textbf{Algorytm regresji} -- 
+	
+	\item 
+	\textbf{Miara jakości algorytmu} -- 
+	% miary jakości: accuracy, precision, recall, ROC, F1-score, G-mean
+	
+	\item 
+	\textbf{Walidacja krzyżowa} -- 
+	
+	\item 
+	\textbf{Holdout} -- 
+
+	\item 
+	\textbf{Baza danych} -- 
+		
+	\item 
+	\textbf{Statystyczna analiza wyników} -- 
+	
+\end{itemize}
+
+
+
+
+
+
 
 \section{Analiza wymagań użytkownika}
 %4. Analiza wymagań użytkownika, w której można zastosować poznane w ramach przedmiotu ”inżynieria oprogramowania” przypadki użycia (ang. use case). Ważne jest zrozumienie jak system jest widziany z punktu widzenia użytkownika. Można przedstawić w tym punkcie główny scenariusz działania oraz najciekawsze scenariusze poboczne (czyli tzw. nietypowe sytuacje).
