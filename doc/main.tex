@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{pbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\title{Dokumentacja projektowa}
+\date{2018-03-18}
+\author{Jędrzej Kozal}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.25\textwidth]{logo_pol_wroclaw.png}\par\vspace{1cm}
+	{\scshape\LARGE Politechnika Wrocławska \par}
+	\vspace{1cm}
+	{\scshape\Large Wybrane zagadnienia projektowania obiektowego\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Platforma testowa dla algorytmów uczenia nadzorowanego \par}
+	\vspace{2cm}
+	{\Large\itshape Filip Guzy\par}
+	{\Large\itshape Jędrzej Kozal\par}
+	{\Large\itshape Marcin Łokietko\par}
+
+	\vfill
+	prowadzący\par
+	Dr inż.~Jacek \textsc{Cichosz}
+
+	\vfill
+
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+
+\section{Streszczenie}
+%Streszczenie, w którym określamy cel projektu. Na przykład, obiektowy model topologii sieci komputerowej może służyć do wizualizacji rozmieszczenia jej węzłów, planowania routingu, itd. Staramy się umieścić nasz system w pewnej ogólnej klasie, np. typu klient–serwer, z bazą danych, sterowany zdarzeniowo, czasu rzeczywistego lub inny. Czy nasz system jest samodzielną aplikacją, fragmentem biblioteki klas, zrębu (ang. framework), komponentu, itp.? 
+%Jakie techniki zostały zastosowane (rodzaje dziedziczenia, składania, wymienić zastosowane wzorce projektowe). Wymienić sugerowane języki implementacji, środowiska i proponowane narzędzia. Streszczenie powinno być krótkie (punkty, hasła).
+
+
+Platforma testowa dla algorytmów uczenia maszynowego jest frameworkiem mającym umożliwiać przeprowadzanie eksperymentów w elastyczny i prosty sposób. W założeniu framework ma pozwalać na skonfigurowanie eksperymentu oraz zebranie wszystkich wyników potrzebnych do określenie skuteczności algorytmu, wygenerowania dokumentacji i zapisu przebiegu. Konstrukcja frameworka ma pozwalać na łatwą integrację w środowisku Continuous Integration.
+
+W trakcie projektowania systemu uwzględniono wysokopoziomowy opis całej aplikacji z podziałem na komponenty oraz niskopoziomowy opis z wyszczególnieniem klas i ich odpowiedzialności.
+
+Wykorzystane wzorce projektowe to:
+
+\begin{itemize}
+	\item Budowniczy,
+	\item Adapter,
+	\item Strategia,
+	\item Kompozyt,
+	\item Polecenie,
+	\item Mediator.
+\end{itemize}
+
+W trakcie prac nad projektem rozważano szereg popularnych języków wspierających obiektowy paradygmat programowania tj. Java, C++, Python lub C\#. W dalszej części pracy zawarto szczegółowe rozważania odnośnie języka implementacji.
+
+Dopisać wykorzystane narzędzia.
+
+
+\section{Wstępny opis słowny}
+% 2. Wstępny opis słowny dotyczy tego co system robi, a nie jak. Jest to wyjściowy model werbalny działania systemu, może być on wynikiem wywiadu z potencjalnymi użytkownikami. Zwracamy uwagę na ważne pojęcia, które pojawiły się w opisie, staramy się je ściślej zdefiniować i usystematyzować. Pojęcia te (głównie rzeczowniki) można przedstawić w formie słownika (glosariusza).
+
+
+
+\section{Słownik pojęć z dziedziny problemu}
+%3. Słownik pojęć z dziedziny problemu ułatwia systematykę pojęć z dziedziny problemu, który rozwiązujemy. Przedstawia wyłowione z opisu słownego określenia, które przełożą się następnie na składniki oprogramowania takie jak np. klasy. Zdarza się, że do reprezentacji niektórych pojęć potrzeba kilku klas. Często w systemie pojawią się także klasy nie odpowiadające bezpośrednio terminom w słowniku, a dotyczące dziedziny implementacji.
+
+\section{Analiza wymagań użytkownika}
+%4. Analiza wymagań użytkownika, w której można zastosować poznane w ramach przedmiotu ”inżynieria oprogramowania” przypadki użycia (ang. use case). Ważne jest zrozumienie jak system jest widziany z punktu widzenia użytkownika. Można przedstawić w tym punkcie główny scenariusz działania oraz najciekawsze scenariusze poboczne (czyli tzw. nietypowe sytuacje).
+
+\section{Modele systemu z różnych perspektyw}
+%5. Modele systemu z różnych perspektyw to najważniejsza część projektu, w której posiłkujemy się językiem UML do przedstawienia struktury i zachowania naszego systemu. Podstawowym diagramem do opisu struktury jest diagram klas, natomiast zachowanie systemu można zobrazować diagramem sekwencji. W razie potrzeby wykonujemy inne rysunki wyjaśniające nasze idee i koncepcje. Nie boimy się przedstawiać alternatywnych rozwiązań jakiegoś problemu i analizować konsekwencje. Rysunkom muszą towarzyszyć słowne komentarze i wyjaśnienia, dopiero te dwa elementy (grafika + tekst) ułatwiają zrozumienie intencji autora. Wszelkie decyzje projektowe powinny być uzasadnione. Właściwe projektowanie można zacząć od naszkicowania współpracy obiektów w celu realizacji scenariuszy działania systemu opisanych na etapie analizy. W dalszej kolejności przypisujemy obiekty do poszczególnych klas. Wtedy często może się okazać, że potrzebnych jest więcej klas niż założyliśmy wstępnie. Należy zwrócić uwagę aby modele systemu z różnych perspektyw były spójne.
+
+\section{Kwestie implementacyjne}
+%6. Kwestie implementacyjne Na tym etapie zastanawiamy nad wyborem języków implementacji, środowisk i narzędzi.
+
+\section{Podsumowanie i dyskusja krytyczna}
+%7. Podsumowanie i dyskusja krytyczna Tu zamieszczamy spostrzeżenia na temat wykorzystania w projekcie ciekawych technik i co dzięki nim zyskaliśmy.
+
+\section{Wykaz materiałów źródłowych}
+%8. Wykaz materiałów źródłowych Podajemy źródła, z których korzystaliśmy (książki, artykuły, strony internetowe)
+
+
+\end{document}
