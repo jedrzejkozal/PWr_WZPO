@@ -78,9 +78,9 @@ Dopisać wykorzystane narzędzia.
 % 2. Wstępny opis słowny dotyczy tego co system robi, a nie jak. Jest to wyjściowy model werbalny działania systemu, może być on wynikiem wywiadu z potencjalnymi użytkownikami. Zwracamy uwagę na ważne pojęcia, które pojawiły się w opisie, staramy się je ściślej zdefiniować i usystematyzować. Pojęcia te (głównie rzeczowniki) można przedstawić w formie słownika (glosariusza).
 
 Celem zaprojektowanego systemu jest badanie skuteczności wybranych algorytmów \textbf{uczenia nadzorowanego} - rodziny metod należących do dziedziny \textbf{uczenia maszynowego}.
-Framework wspiera zarówno \textbf{metody klasyfikacji}, jak i \textbf{regresji}. Jakość analizowanych metod określana jest za pomocą wybranych przez użytkownika \textbf{miar}. W zależności od konfiguracji eksperymentu badania przeprowadzane są z wykorzystaniem \textbf{walidacji krzyżowej} o wybranych parametrach lub klasycznej metody \textbf{holdout}.
+Framework wspiera zarówno metody \textbf{klasyfikacji}, jak i \textbf{regresji}. Jakość analizowanych metod określana jest za pomocą wybranych przez użytkownika \textbf{miar}. W zależności od konfiguracji eksperymentu badania przeprowadzane są z wykorzystaniem klasycznej metody \textbf{holdout} lub \textbf{walidacji krzyżowej} o wybranych parametrach.
 
-Testy wykonywane są na sparametryzowanej przez użytkownika \textbf{bazie danych}, która może podlegać przeprowadzanej przez framework analizie, obejmującej na przykład wykrywanie jej niezbalansowania.
+Testy wykonywane są na sparametryzowanej przez użytkownika bazie danych, która może podlegać przeprowadzanej przez framework analizie, obejmującej na przykład wykrywanie jej niezbalansowania.
 
 Aplikacja umożliwia porównanie algorytmów na drodze \textbf{statystyczna analiza wyników}.
 Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
@@ -91,33 +91,31 @@ Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
 
 \begin{itemize}
 	\item 
-	\textbf{Uczenie nadzorowane} -- zadanie \textbf{uczenia maszynowego}, w którym dane uczące zawierają wektory wejściowe algorytmu wraz z jego oczekiwanym wyjściem. [BISHOP]
+	\textbf{Uczenie nadzorowane} -- zadanie \textbf{uczenia maszynowego}, w którym dane uczące zawierają wektory wejściowe algorytmu wraz z jego oczekiwanym wyjściem\cite{Bishop2006}. 
 	
 	\item 
 	\textbf{Uczenie maszynowe} -- dziedzina, której celem jest optymalizacja parametrów algorytmu na podstawie posiadanych danych. Ocena jakości algorytmów dokonywana jest z wykorzystaniem przyjętej funkcji strat.
-	[ALPAYDIN]
+	\cite{Alpaydin2014}
 	
 	\item 
-	\textbf{Algorytm klasyfikacji} -- 
+	\textbf{Zadanie klasyfikacji} -- przypisanie wejściowego wektora do jednego z elementów skończonego zbioru kategorii\cite{Bishop2006}. 
 	
 	\item 
-	\textbf{Algorytm regresji} -- 
+	\textbf{Zadanie regresji} -- zadanie uczenia maszynowego, w którym oczekiwanym wyjściem algorytmu dla danego wektora wejściowego jest wartość ciągła\cite{Bishop2006}.
 	
 	\item 
-	\textbf{Miara jakości algorytmu} -- 
-	% miary jakości: accuracy, precision, recall, ROC, F1-score, G-mean
+	\textbf{Miara jakości algorytmu} -- metryka służąca ocenie działania algorytmu przy przetwarzaniu danych, które nie zostały wykorzystane podczas uczenia.
 	
 	\item 
-	\textbf{Walidacja krzyżowa} -- 
+	\textbf{Holdout} -- metoda wyznaczania zbiorów treningowego i testowego poprzez jednokrotny podział danych uczących na dwie części.
 	
 	\item 
-	\textbf{Holdout} -- 
+	\textbf{Walidacja krzyżowa} -- alternatywna do podejścia \textbf{holdout} metoda polegająca na wielokrotnym podziale dostępnych danych na zbiory treningowy i testowy, na których osobno uczony i testowany jest badany algorytm.
+	\cite{Alpaydin2014}
 
 	\item 
-	\textbf{Baza danych} -- 
-		
-	\item 
-	\textbf{Statystyczna analiza wyników} -- 
+	\textbf{Statystyczna analiza miar jakości algorytmów} -- przetwarzanie wartości miar skuteczności algorytmów, którego celem jest określenie, czy różnice jakości metod są istotne statystycznie.
+	\cite{Dietterich1998}
 	
 \end{itemize}
 
