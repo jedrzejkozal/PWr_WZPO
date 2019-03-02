@@ -20,6 +20,7 @@
 \author{Jędrzej Kozal}
 
 \begin{document}
+\bibliographystyle{plabbrv}
 
 \begin{titlepage}
 	\centering
@@ -90,11 +91,23 @@ Dopisać wykorzystane narzędzia.
 \section{Kwestie implementacyjne}
 %6. Kwestie implementacyjne Na tym etapie zastanawiamy nad wyborem języków implementacji, środowisk i narzędzi.
 
+Obecnie istnieje wiele popularnych obiektowych języków programowania. W niniejszej sekcji pracy przeprowadzono dyskusję możliwych języków implementacji.
+
+\paragraph{Python}
+Python jest językiem typowanym dynamicznie, kompilowanym do kodu bajtowego maszyny wirtualnej. Zyskał dużą popularność przez prostotę składni, przystępność oraz dużą liczbę dostępnych bibliotek. W konteście realizowanego projektu Python może być wskazanym językiem ze względu na dużą dostępność narzędzi i bibliotek przeznaczonych do uczenia maszynowego. W teorii Python wspiera obiektowość, jednakże pewne mechanizmy związane z dynamicznym typowaniem uniemożliwiają pełne wykorzystanie zasad paradygmatu obiektowego. Przykładowo Python udostępnia możliwosć tworzenia interfesjów z wykorzystaniem AbstractBaseClass (ABC). W ABC można zdefiniować metody interfejsu, które muszą być zaimplementowane w klasach dziedziczących po ABC. Brak implementacji skutkuje pojawieniem się wyjątku. Trudno jest zaimplementować zachowania polimorficzne, ze względu na ducktyping. Dodatkowo mechanizm enkapsulacji w tym języku nie istnieje. Jest on symulowany przez name mangling - mechanizm zamiany przez interpreter nazw metod z podwójnym podkreślinikiem na początku nazwy.
+
+\paragraph{C++}
+C++ jest językiem ogólnego przeznaczenia wspierającym wiele paradygmatów. Jego główną zaletą jest szybkość kodu, wynikająca głównie z kompilacji do kodu maszynowego. C++ jest silnie typowany, przez co wiele błędów można wykryć na etapie kompilacji kodu. Niewątpliwą zaletą tego języka jest rozbudowany system szablonów, który pozwala na wykorzystanie zaawansowanych technik metaprogramowania. W \cite{Cpp_turing_complete} wykazano, że szablony C++ są kompletne w sensie Turinga. Oznacza to, że można w nich zaimplementować dowolny algorytm z klasy obliczeniowej rozwiązywalnej na maszynie Turinga. Ciekawym projektem jest \cite{Cpp_snake_compile_time} gdzie zaimplementowano popularną grę Snake z wykorzystaniem szablonów. Polecenia ruchu są zadawane w czasie kompilacji i jednocześnie w trakcie kompilacji są dokonywane wszystkie obliczenia. Restrykcyjność języka może być powodem wolniejszego tempa implementacji w C++. Dodatkowo operacje na zasobach są jedną z najbardziej niebezpiecznych aspektów tego języka. C++ nie posiada garbage collectora, przez co na programiście ciąży obowiązek zwalniania zaalokowanych zasobów. Istnieją w C++ mechanizmy umożliwiające bezpieczne zarządzanie zasobami, jednakże ich stosowanie wymaga dużego nakładu dyscypliny (przykładowo według Scotta Mayersa najważniejszym wynalazkiem języka jest destruktor, który umożliwił pojawienie się idiomu RAII). Pojawienie się nowszych standardów znacząco poprawiło wygodę programistów i bezpieczeństwo operowania na zasobach, przez np. dodanie inteligentnych wskaźników.
+
 \section{Podsumowanie i dyskusja krytyczna}
 %7. Podsumowanie i dyskusja krytyczna Tu zamieszczamy spostrzeżenia na temat wykorzystania w projekcie ciekawych technik i co dzięki nim zyskaliśmy.
 
 \section{Wykaz materiałów źródłowych}
 %8. Wykaz materiałów źródłowych Podajemy źródła, z których korzystaliśmy (książki, artykuły, strony internetowe)
+
+\bibliography{bibliography}
+
+\listoffigures
 
 
 \end{document}
