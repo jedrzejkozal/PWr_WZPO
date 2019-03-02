@@ -122,9 +122,6 @@ Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
 
 
 
-
-
-
 \section{Analiza wymagań użytkownika}
 %4. Analiza wymagań użytkownika, w której można zastosować poznane w ramach przedmiotu ”inżynieria oprogramowania” przypadki użycia (ang. use case). Ważne jest zrozumienie jak system jest widziany z punktu widzenia użytkownika. Można przedstawić w tym punkcie główny scenariusz działania oraz najciekawsze scenariusze poboczne (czyli tzw. nietypowe sytuacje).
 
@@ -176,6 +173,40 @@ Nietypowe sytuacje mogą dotyczyć przypadków w których użytkownik nie poda w
 
 \section{Modele systemu z różnych perspektyw}
 %5. Modele systemu z różnych perspektyw to najważniejsza część projektu, w której posiłkujemy się językiem UML do przedstawienia struktury i zachowania naszego systemu. Podstawowym diagramem do opisu struktury jest diagram klas, natomiast zachowanie systemu można zobrazować diagramem sekwencji. W razie potrzeby wykonujemy inne rysunki wyjaśniające nasze idee i koncepcje. Nie boimy się przedstawiać alternatywnych rozwiązań jakiegoś problemu i analizować konsekwencje. Rysunkom muszą towarzyszyć słowne komentarze i wyjaśnienia, dopiero te dwa elementy (grafika + tekst) ułatwiają zrozumienie intencji autora. Wszelkie decyzje projektowe powinny być uzasadnione. Właściwe projektowanie można zacząć od naszkicowania współpracy obiektów w celu realizacji scenariuszy działania systemu opisanych na etapie analizy. W dalszej kolejności przypisujemy obiekty do poszczególnych klas. Wtedy często może się okazać, że potrzebnych jest więcej klas niż założyliśmy wstępnie. Należy zwrócić uwagę aby modele systemu z różnych perspektyw były spójne.
+
+W niniejszej sekcji pracy przedstawiono wysokopoziomowy opis architektury zwierający informacje o wyszczególnionych komponentach, zakresie ich odpowiedzialności oraz sposobie komunikacji. Wyszczególniono również bardziej szczegółowe modele poszczególnych komponentów z uwzględnieniem diagramów klas i diagramów przepływu.
+
+\subsection{Wysokopoziomowa koncepcja architektury aplikacji}
+
+W frameworku wyszczególniono następujące komponenty:
+
+\begin{itemize}
+	\item TestPlatform,
+	\item Dataset,
+	\item Validation,
+	\item Algorithm,
+	\item ResultAnalyser.
+\end{itemize}
+
+Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. 
+
+TO DO: dodać schematy klas dla komponentów
+
+\subsection{Komponent TestPlatform}
+
+TestPlatform jest odpowiedzialny za konfiguracje eksperymentu i stworzenie wszystkich niezbędnych obiektów. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy.
+
+\subsection{Komponent Dataset}
+
+Dataset odpowiada za nałożenie abstrakcji na zbiory uczące i umożliwia przeprowadzenie analizy zbioru.
+
+\subsection{Komponent Validation}
+
+
+
+\subsection{Komponent Algorithm}
+
+\subsection{Komponent ResultAnalyser}
 
 \section{Kwestie implementacyjne}
 %6. Kwestie implementacyjne Na tym etapie zastanawiamy nad wyborem języków implementacji, środowisk i narzędzi.
