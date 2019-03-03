@@ -53,12 +53,15 @@
 %Streszczenie, w którym określamy cel projektu. Na przykład, obiektowy model topologii sieci komputerowej może służyć do wizualizacji rozmieszczenia jej węzłów, planowania routingu, itd. Staramy się umieścić nasz system w pewnej ogólnej klasie, np. typu klient–serwer, z bazą danych, sterowany zdarzeniowo, czasu rzeczywistego lub inny. Czy nasz system jest samodzielną aplikacją, fragmentem biblioteki klas, zrębu (ang. framework), komponentu, itp.? 
 %Jakie techniki zostały zastosowane (rodzaje dziedziczenia, składania, wymienić zastosowane wzorce projektowe). Wymienić sugerowane języki implementacji, środowiska i proponowane narzędzia. Streszczenie powinno być krótkie (punkty, hasła).
 
+\subsection{Założenia projektu}
 
 Platforma testowa dla algorytmów uczenia maszynowego jest frameworkiem mającym umożliwiać przeprowadzanie eksperymentów w elastyczny i prosty sposób. W założeniu framework ma pozwalać na skonfigurowanie eksperymentu oraz zebranie wszystkich wyników potrzebnych do określenie skuteczności algorytmu, wygenerowania dokumentacji i zapisu przebiegu. Konstrukcja frameworka ma pozwalać na łatwą integrację w środowisku Continuous Integration.
 
 W trakcie projektowania systemu uwzględniono wysokopoziomowy opis całej aplikacji z podziałem na komponenty oraz niskopoziomowy opis z wyszczególnieniem klas i ich odpowiedzialności.
 
-Wykorzystane wzorce projektowe to:
+\subsection{Wykorzystane wzorce i narzędzia}
+
+W trakcie prac nad projektem wykorzystano następujące wzorce projektowe:
 
 \begin{itemize}
 	\item Budowniczy,
@@ -69,9 +72,11 @@ Wykorzystane wzorce projektowe to:
 	\item Mediator.
 \end{itemize}
 
-W trakcie prac nad projektem rozważano szereg popularnych języków wspierających obiektowy paradygmat programowania tj. Java, C++, Python lub C\#. W dalszej części pracy zawarto szczegółowe rozważania odnośnie języka implementacji.
+Dokładny opis wykorzystanych wzorców można znaleźć w \cite{gang-of-four}.
 
-Dopisać wykorzystane narzędzia.
+Rozważano najpopularniejsze języki wspierające obiektowy paradygmat programowania tj. Java, C++, Python lub C\#. W dalszej części pracy zawarto szczegółową analizę dostępnych języków implementacji wraz z umotywowaniem podjętego wyboru.
+
+TO DO: Dopisać wykorzystane narzędzia.
 
 
 \section{Wstępny opis słowny}
@@ -88,6 +93,8 @@ Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
 
 \section{Słownik pojęć z dziedziny problemu}
 %3. Słownik pojęć z dziedziny problemu ułatwia systematykę pojęć z dziedziny problemu, który rozwiązujemy. Przedstawia wyłowione z opisu słownego określenia, które przełożą się następnie na składniki oprogramowania takie jak np. klasy. Zdarza się, że do reprezentacji niektórych pojęć potrzeba kilku klas. Często w systemie pojawią się także klasy nie odpowiadające bezpośrednio terminom w słowniku, a dotyczące dziedziny implementacji.
+
+Poniżej przedstawiono definicje wyszczególnionych pojęć z poprzedniej sekcji pracy:
 
 \begin{itemize}
 	\item 
@@ -125,11 +132,12 @@ Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
 \section{Analiza wymagań użytkownika}
 %4. Analiza wymagań użytkownika, w której można zastosować poznane w ramach przedmiotu ”inżynieria oprogramowania” przypadki użycia (ang. use case). Ważne jest zrozumienie jak system jest widziany z punktu widzenia użytkownika. Można przedstawić w tym punkcie główny scenariusz działania oraz najciekawsze scenariusze poboczne (czyli tzw. nietypowe sytuacje).
 
-\newcommand{\SubItem}[1]{
-    {\setlength\itemindent{15pt} \item[-] #1}
-}
+Projekt ma charakter frameworku, którego głównymi użytkownikami będą inni programiści. Z tego powodu projekt aplikacji powinien być prosty i intuicyjny w wykorzystaniu. W przypadku realizowanego tematu może być to trudne do osiągnięcia ze względu na złożoność omawianych zagadnień. W tej sekcji pracy przedstawiono analizę przypadków użycia frameworku, które stanowią podstawę projektu API dostępnego dla użykownika.
+
+\subsection{Podstawowe przypadki użycia}
 
 Przewiduje się następujące przypadki użycia:
+
 \begin{itemize}
 	\item konfiguracja i przeprowadzenie eksperymentu z wykorzystaniem:
 	\begin{itemize}
@@ -169,12 +177,22 @@ Przewiduje się następujące przypadki użycia:
 	\end{itemize}
 \end{itemize}
 
-Nietypowe sytuacje mogą dotyczyć przypadków w których użytkownik nie poda właściwych danych, co może skutkować wystąpieniem wyjątków w modułach konfigurujących pracę systemu. Przykładowo użytkownik dla algorytmu klasyfikacji może podać metrykę przewidzianą dla regresji. Innym przypadkiem z tej kategorii może być podanie jako argumentu referencji do NullPointera. Są to problemy, które powinny być rozwiązywane przez moduły konfigurujące pracę systemu. Wyjątkowa sytuacja, która nie może być wykryta na poziomie konfiguracji systemu to podanie zbioru uczącego zawierającego mniej próbek, niż jest to wymagane przez algorytmy walidacji krzyżowej. Przykładowo dla 10-krotnej walidacji musi zostać utworzone 10 podzbiorów datasetu co oznacza, że zbiór uczący musi posiadać co najmniej 10 próbek. Sprawdzanie tego typu scenariuszy musi odbywać się na poziomie klasy realizującej walidację krzyżową. Nie stosowanie się do tego rozwiązania powodowałoby mieszanie informacji i łamanie dobrych zasad projektowania.
+\subsection{Nietypowe przypadki}
+
+Najczęstszym źródłem nietypowych sytuacji mogą być przypadki w których użytkownik nie poda właściwych danych, co może skutkować wystąpieniem wyjątków w modułach konfigurujących pracę systemu. Przykładowo użytkownik dla algorytmu klasyfikacji może podać metrykę przewidzianą dla regresji. Innym przypadkiem z tej kategorii może być podanie jako argumentu referencji do NullPointera. Są to problemy, które powinny być rozwiązywane przez moduły konfigurujące pracę systemu, przez komunikowanie użytkownika o błędnej konfiguracji.
+ 
+Wyjątkowa sytuacja, która nie może być wykryta na poziomie konfiguracji systemu to podanie zbioru uczącego zawierającego mniej próbek, niż jest to wymagane przez algorytmy walidacji krzyżowej. Przykładowo dla 10-krotnej walidacji musi zostać utworzone 10 podzbiorów datasetu co oznacza, że zbiór uczący musi posiadać co najmniej 10 próbek. Sprawdzanie tego typu scenariuszy musi odbywać się na poziomie klasy realizującej walidację krzyżową. Próba zabezpieczenia się przed takimi sytuacjami w innym miejscu powodowałaby mieszanie informacji o charakterze i odpowiedzialności poszczególnych komponentów i łamanie dobrych zasad projektowania.
+
+\subsection{Podstawowe założenia systemu obsługi błędów}
+
+Zgodnie z dobrymi zasadami programowania obiektowego \cite{clean-code} przyjęto, że framework będzie komunikował użytkownika o wystąpieniu błędu przez zgłoszenie odpowiedniego wyjątku. Każdy wyjątek powinien mieć typ zdefiniowany w frameworku - poleca się unikanie ogólnych typów wyjątków. Ponadto wyjątki powinny zawierać wszystkie niezbędne informacje o kontekście i lokalizacji błędu, co powinno ułatwić korzystanie z frameworku. Przyjęto takie rozwiązanie ponieważ większość błędów omówiona w poprzedniej subsekcji pracy może wynikać z nieprawidłowej konfiguracji przez użytkownika. 
+
+Istnieją alternatywy dla wybranego rozwiązania jak np. modyfikacja interfejsów, tak aby zwracały informacje o tym, czy dana operacja zakończyła się skucesem lub rozwiązania specyficzne dla wybranych języków programowania np. system obsługi błędów w Go, gdzie każda funkcja oprócz rezultatu zwraca obiekt informujący o błędzie. Rozwiązania te zostały odrzucone ponieważ mają zły wpływ na kod. Główną korzyścią stosowania wyjątków jest oddzielenie normalnej logiki aplikacji od kodu obsługującego błędy, co ułatwia konserwację i rozwijanie kodu. 
 
 \section{Modele systemu z różnych perspektyw}
 %5. Modele systemu z różnych perspektyw to najważniejsza część projektu, w której posiłkujemy się językiem UML do przedstawienia struktury i zachowania naszego systemu. Podstawowym diagramem do opisu struktury jest diagram klas, natomiast zachowanie systemu można zobrazować diagramem sekwencji. W razie potrzeby wykonujemy inne rysunki wyjaśniające nasze idee i koncepcje. Nie boimy się przedstawiać alternatywnych rozwiązań jakiegoś problemu i analizować konsekwencje. Rysunkom muszą towarzyszyć słowne komentarze i wyjaśnienia, dopiero te dwa elementy (grafika + tekst) ułatwiają zrozumienie intencji autora. Wszelkie decyzje projektowe powinny być uzasadnione. Właściwe projektowanie można zacząć od naszkicowania współpracy obiektów w celu realizacji scenariuszy działania systemu opisanych na etapie analizy. W dalszej kolejności przypisujemy obiekty do poszczególnych klas. Wtedy często może się okazać, że potrzebnych jest więcej klas niż założyliśmy wstępnie. Należy zwrócić uwagę aby modele systemu z różnych perspektyw były spójne.
 
-W niniejszej sekcji pracy przedstawiono wysokopoziomowy opis architektury zwierający informacje o wyszczególnionych komponentach, zakresie ich odpowiedzialności oraz sposobie komunikacji. Wyszczególniono również bardziej szczegółowe modele poszczególnych komponentów z uwzględnieniem diagramów klas i diagramów przepływu.
+W niniejszej sekcji pracy przedstawiono wysokopoziomowy opis architektury zwierający informacje o wyszczególnionych komponentach, zakresie ich odpowiedzialności oraz sposobie komunikacji. Zawarto tu również bardziej szczegółowe modele poszczególnych komponentów z uwzględnieniem diagramów klas i diagramów przepływu.
 
 \subsection{Wysokopoziomowa koncepcja architektury aplikacji}
 
@@ -194,24 +212,38 @@ TO DO: dodać schematy klas dla komponentów
 
 \subsection{Komponent TestPlatform}
 
-TestPlatform jest odpowiedzialny za konfiguracje eksperymentu i stworzenie wszystkich niezbędnych obiektów. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy.
+TestPlatform jest odpowiedzialny za konfiguracje eksperymentu, stworzenie wszystkich niezbędnych obiektów i zapewnienie odpowiedniego przepływu danych. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy. 
 
 \subsection{Komponent Dataset}
 
-Dataset odpowiada za nałożenie abstrakcji na zbiory uczące i umożliwia przeprowadzenie analizy zbioru.
+Dataset odpowiada za nałożenie abstrakcji na zbiory uczące i pozwala na przeprowadzenie analizy zbioru. 
 
 \subsection{Komponent Validation}
 
-
+Głównymi odpowiedzialnościami komponentu są podział datasetu na zbiory uczące i testowe o odpowiedniej liczności według przyjętej strategii. Dodatkowo Validation ma dla wygenerowanych zbiorów testowych i uczących zebrać wyniki osiągane przez algorytm. Wyniki te są wykorzystywane w dalszych etapach eksperymentu, ale komponent Validation jest niezależny od dalej zdefiniowanych operacji.
 
 \subsection{Komponent Algorithm}
 
+Komponent jest abstrakcją nałożoną na pojedynczy algorytm uczenia maszynowego, bądź zbiór algorytmów. W zależności od rozwiązywanego zadania (klasyfikacja bądź regresja) wynik działania algorytmu może być różny, tak samo jak przebieg procesu uczenia. Dodatkowo komponent ten przez zastosowanie wzorca projektowego Adapter pozwala uniezależnić implementację algorytmu w wybranych frameworkach uczenia maszynowego od omawianej platformy do testów. 
+
 \subsection{Komponent ResultAnalyser}
+
+ResultAnalyser ma zapisywać reuzultaty eksperymentu, generować i zapisywać wykresy oraz przeprowadzać testy statystyczne na podstawie uzyskanych wyników. 
+
+\subsection{Projekt API frameworku}
+
+Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, nie mniej jednak projekt API frameworku definiuje sposób w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
+
+TBD
 
 \section{Kwestie implementacyjne}
 %6. Kwestie implementacyjne Na tym etapie zastanawiamy nad wyborem języków implementacji, środowisk i narzędzi.
 
 Obecnie istnieje wiele popularnych obiektowych języków programowania. W niniejszej sekcji pracy przeprowadzono dyskusję możliwych języków implementacji.
+
+\subsection{Wybór języka implementacji}
+
+Język implementacji ma bardzo duży wpływ na ostateczny kształt projektu. Poniżej przedstawiono szczegółową analizę możliwych języków implementacji, wraz z omówieniem zalet i wad wykorzystania wybranych języków do realizacji projektu.
 
 \paragraph{Python}
 Python jest językiem typowanym dynamicznie, kompilowanym do kodu bajtowego maszyny wirtualnej. Zyskał dużą popularność przez prostotę składni, przystępność oraz dużą liczbę dostępnych bibliotek. W konteście realizowanego projektu Python może być wskazanym językiem ze względu na dużą dostępność narzędzi i bibliotek przeznaczonych do uczenia maszynowego. W teorii Python wspiera obiektowość, jednakże pewne mechanizmy związane z dynamicznym typowaniem uniemożliwiają pełne wykorzystanie zasad paradygmatu obiektowego. Przykładowo Python udostępnia możliwosć tworzenia interfesjów z wykorzystaniem AbstractBaseClass (ABC). W ABC można zdefiniować metody interfejsu, które muszą być zaimplementowane w klasach dziedziczących po ABC. Brak implementacji skutkuje pojawieniem się wyjątku. Trudno jest zaimplementować zachowania polimorficzne, ze względu na ducktyping. Dodatkowo mechanizm enkapsulacji w tym języku nie istnieje. Jest on symulowany przez name mangling - mechanizm zamiany przez interpreter nazw metod z podwójnym podkreślinikiem na początku nazwy. Istnieją pewne zaawansowane mechanizmy takie jak metaklasy pozwalające na stosowanie refleksji oraz elementy paradygmatu funkcyjnego, które mają wpływ na sposób implementacji w Pythonie, jednakże są mało istotne w kontekście omawianego projektu.
@@ -225,11 +257,16 @@ Java to język w pełni obiektowy, kompilowany do kodu bajtowego. Pełna obiekto
 \paragraph{C\#}
 C\# jest podobnie jak Java językiem czysto obiektowym kompilownym w pierwszym etapie do kodu pośredniego (IL - intermediate language), a następnie do kodu maszynowego za pomocą kompilatora JIT. C\# jest oparty na frameworku .NET.
 
+\subsection{Wybór środowisk i narzędzi}
+
+TBD
+
 \section{Podsumowanie i dyskusja krytyczna}
 %7. Podsumowanie i dyskusja krytyczna Tu zamieszczamy spostrzeżenia na temat wykorzystania w projekcie ciekawych technik i co dzięki nim zyskaliśmy.
 
-\section{Wykaz materiałów źródłowych}
-%8. Wykaz materiałów źródłowych Podajemy źródła, z których korzystaliśmy (książki, artykuły, strony internetowe)
+Zweryfikowano poprawność przygotowanej architektury poprzez sprawdzenie zgodności z zasadami SOLID. Istnieją pewne odstępstwa od tych zasad, ale są one świadomymi kompromisami mającymi na celu uproszczenie projektu (np. podwójna odpowiedzialność klas implementujących IValidationStrategy w komponencie Validation). Nadmierne komplikowanie projektów (ang. overengineering) jest równie poważnym problemem co zbyt prymitywna architektura. Oba te zagadnienia utrudniają rozwijanie aplikacji.
+
+Zastosowanie architektury z podziałem na osobne komponenty oddzielone interfejsami pozwoliło na mockowanie niezaimplelentowanych komponentów i niezależny rozwój pozostałych. Jest to bardzo wygodny sposób pracy, umożliwiający prostsze testowanie aplikacji.
 
 \bibliography{bibliography}
 
