@@ -87,8 +87,8 @@ Framework wspiera zarówno metody \textbf{klasyfikacji}, jak i \textbf{regresji}
 
 Testy wykonywane są na sparametryzowanej przez użytkownika bazie danych, która może podlegać przeprowadzanej przez framework analizie, obejmującej na przykład wykrywanie jej niezbalansowania.
 
-Aplikacja umożliwia porównanie algorytmów na drodze \textbf{statystyczna analiza wyników}.
-Wszystkie wyniki eksperymentów reprezentowane są w graficznej postaci.
+Aplikacja umożliwia porównanie algorytmów na drodze \textbf{statystycznej analizy wyników}.
+Wszystkie rezultaty eksperymentów reprezentowane są w graficznej postaci.
 
 
 \section{Słownik pojęć z dziedziny problemu}
@@ -117,12 +117,10 @@ Poniżej przedstawiono definicje wyszczególnionych pojęć z poprzedniej sekcji
 	\textbf{Holdout} -- metoda wyznaczania zbiorów treningowego i testowego poprzez jednokrotny podział danych uczących na dwie części.
 	
 	\item 
-	\textbf{Walidacja krzyżowa} -- alternatywna do podejścia \textbf{holdout} metoda polegająca na wielokrotnym podziale dostępnych danych na zbiory treningowy i testowy, na których osobno uczony i testowany jest badany algorytm.
-	\cite{Alpaydin2014}
+	\textbf{Walidacja krzyżowa} -- alternatywna do podejścia \textbf{holdout} metoda polegająca na wielokrotnym podziale dostępnych danych na zbiory treningowy i testowy, na których osobno uczony i testowany jest badany algorytm\cite{Alpaydin2014}.
 
 	\item 
-	\textbf{Statystyczna analiza miar jakości algorytmów} -- przetwarzanie wartości miar skuteczności algorytmów, którego celem jest określenie, czy różnice jakości metod są istotne statystycznie.
-	\cite{Dietterich1998}
+	\textbf{Statystyczna analiza miar jakości algorytmów} -- przetwarzanie wartości miar skuteczności algorytmów, którego celem jest określenie, czy różnice jakości metod są istotne statystycznie\cite{Dietterich1998}.
 	
 \end{itemize}
 
@@ -150,18 +148,18 @@ Przewiduje się następujące przypadki użycia:
 		\begin{itemize}
 			\item K-krotnej walidacji krzyżowej
 			\item 5-2 walidacji krzyżowej
-			\item metoda "HoldOut"
+			\item metody "HoldOut"
 		\end{itemize}
 		\item wybranych metryk:
 		\begin{itemize}
-			\item dokładność
-			\item czułość
+			\item dokładności
+			\item czułości
 			\item swoistość
-			\item krzywa ROC
-			\item pole pod krzywą ROC
+			\item krzywej ROC
+			\item pola pod krzywą ROC
 			\item F1-score
 			\item G-mean
-			\item błąd średniokwadratowy
+			\item błędu średniokwadratowego
 		\end{itemize}
 		\item funkcjonalności do analizy wyników:
 		\begin{itemize}
@@ -187,7 +185,7 @@ Wyjątkowa sytuacja, która nie może być wykryta na poziomie konfiguracji syst
 
 Zgodnie z dobrymi zasadami programowania obiektowego \cite{clean-code} przyjęto, że framework będzie komunikował użytkownika o wystąpieniu błędu przez zgłoszenie odpowiedniego wyjątku. Każdy wyjątek powinien mieć typ zdefiniowany w frameworku - poleca się unikanie ogólnych typów wyjątków. Ponadto wyjątki powinny zawierać wszystkie niezbędne informacje o kontekście i lokalizacji błędu, co powinno ułatwić korzystanie z frameworku. Przyjęto takie rozwiązanie ponieważ większość błędów omówiona w poprzedniej subsekcji pracy może wynikać z nieprawidłowej konfiguracji przez użytkownika. 
 
-Istnieją alternatywy dla wybranego rozwiązania jak np. modyfikacja interfejsów, tak aby zwracały informacje o tym, czy dana operacja zakończyła się skucesem lub rozwiązania specyficzne dla wybranych języków programowania np. system obsługi błędów w Go, gdzie każda funkcja oprócz rezultatu zwraca obiekt informujący o błędzie. Rozwiązania te zostały odrzucone ponieważ mają zły wpływ na kod. Główną korzyścią stosowania wyjątków jest oddzielenie normalnej logiki aplikacji od kodu obsługującego błędy, co ułatwia konserwację i rozwijanie kodu. 
+Istnieją alternatywy dla wybranego rozwiązania jak np. modyfikacja interfejsów, tak aby zwracały informacje o tym, czy dana operacja zakończyła się sukcesem lub rozwiązania specyficzne dla wybranych języków programowania np. system obsługi błędów w Go, gdzie każda funkcja oprócz rezultatu zwraca obiekt informujący o błędzie. Rozwiązania te zostały odrzucone ponieważ mają zły wpływ na kod. Główną korzyścią stosowania wyjątków jest oddzielenie normalnej logiki aplikacji od kodu obsługującego błędy, co ułatwia konserwację i rozwijanie kodu. 
 
 \section{Modele systemu z różnych perspektyw}
 %5. Modele systemu z różnych perspektyw to najważniejsza część projektu, w której posiłkujemy się językiem UML do przedstawienia struktury i zachowania naszego systemu. Podstawowym diagramem do opisu struktury jest diagram klas, natomiast zachowanie systemu można zobrazować diagramem sekwencji. W razie potrzeby wykonujemy inne rysunki wyjaśniające nasze idee i koncepcje. Nie boimy się przedstawiać alternatywnych rozwiązań jakiegoś problemu i analizować konsekwencje. Rysunkom muszą towarzyszyć słowne komentarze i wyjaśnienia, dopiero te dwa elementy (grafika + tekst) ułatwiają zrozumienie intencji autora. Wszelkie decyzje projektowe powinny być uzasadnione. Właściwe projektowanie można zacząć od naszkicowania współpracy obiektów w celu realizacji scenariuszy działania systemu opisanych na etapie analizy. W dalszej kolejności przypisujemy obiekty do poszczególnych klas. Wtedy często może się okazać, że potrzebnych jest więcej klas niż założyliśmy wstępnie. Należy zwrócić uwagę aby modele systemu z różnych perspektyw były spójne.
@@ -196,7 +194,7 @@ W niniejszej sekcji pracy przedstawiono wysokopoziomowy opis architektury zwiera
 
 \subsection{Wysokopoziomowa koncepcja architektury aplikacji}
 
-W frameworku wyszczególniono następujące komponenty:
+We frameworku wyszczególniono następujące komponenty:
 
 \begin{itemize}
 	\item TestPlatform,
@@ -228,11 +226,11 @@ Komponent jest abstrakcją nałożoną na pojedynczy algorytm uczenia maszynoweg
 
 \subsection{Komponent ResultAnalyser}
 
-ResultAnalyser ma zapisywać reuzultaty eksperymentu, generować i zapisywać wykresy oraz przeprowadzać testy statystyczne na podstawie uzyskanych wyników. 
+ResultAnalyser ma zapisywać rezultaty eksperymentu, generować i zapisywać wykresy oraz przeprowadzać testy statystyczne na podstawie uzyskanych wyników. 
 
 \subsection{Projekt API frameworku}
 
-Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, nie mniej jednak projekt API frameworku definiuje sposób w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
+Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, niemniej jednak projekt API frameworku definiuje sposób, w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
 
 TBD
 
@@ -246,16 +244,16 @@ Obecnie istnieje wiele popularnych obiektowych języków programowania. W niniej
 Język implementacji ma bardzo duży wpływ na ostateczny kształt projektu. Poniżej przedstawiono szczegółową analizę możliwych języków implementacji, wraz z omówieniem zalet i wad wykorzystania wybranych języków do realizacji projektu.
 
 \paragraph{Python}
-Python jest językiem typowanym dynamicznie, kompilowanym do kodu bajtowego maszyny wirtualnej. Zyskał dużą popularność przez prostotę składni, przystępność oraz dużą liczbę dostępnych bibliotek. W konteście realizowanego projektu Python może być wskazanym językiem ze względu na dużą dostępność narzędzi i bibliotek przeznaczonych do uczenia maszynowego. W teorii Python wspiera obiektowość, jednakże pewne mechanizmy związane z dynamicznym typowaniem uniemożliwiają pełne wykorzystanie zasad paradygmatu obiektowego. Przykładowo Python udostępnia możliwosć tworzenia interfesjów z wykorzystaniem AbstractBaseClass (ABC). W ABC można zdefiniować metody interfejsu, które muszą być zaimplementowane w klasach dziedziczących po ABC. Brak implementacji skutkuje pojawieniem się wyjątku. Trudno jest zaimplementować zachowania polimorficzne, ze względu na ducktyping. Dodatkowo mechanizm enkapsulacji w tym języku nie istnieje. Jest on symulowany przez name mangling - mechanizm zamiany przez interpreter nazw metod z podwójnym podkreślinikiem na początku nazwy. Istnieją pewne zaawansowane mechanizmy takie jak metaklasy pozwalające na stosowanie refleksji oraz elementy paradygmatu funkcyjnego, które mają wpływ na sposób implementacji w Pythonie, jednakże są mało istotne w kontekście omawianego projektu.
+Python jest językiem typowanym dynamicznie, kompilowanym do kodu bajtowego maszyny wirtualnej. Zyskał dużą popularność przez prostotę składni, przystępność oraz dużą liczbę dostępnych bibliotek. W kontekście realizowanego projektu Python może być wskazanym językiem ze względu na dużą dostępność narzędzi i bibliotek przeznaczonych do uczenia maszynowego. W teorii Python wspiera obiektowość, jednakże pewne mechanizmy związane z dynamicznym typowaniem uniemożliwiają pełne wykorzystanie zasad paradygmatu obiektowego. Przykładowo Python udostępnia możliwość tworzenia interfejsów z wykorzystaniem AbstractBaseClass (ABC). W ABC można zdefiniować metody interfejsu, które muszą być zaimplementowane w klasach dziedziczących po ABC. Brak implementacji skutkuje pojawieniem się wyjątku. Trudno jest zaimplementować zachowania polimorficzne, ze względu na ducktyping. Dodatkowo mechanizm enkapsulacji w tym języku nie istnieje. Jest on symulowany przez name mangling - mechanizm zamiany przez interpreter nazw metod z podwójnym podkreślinikiem na początku nazwy. Istnieją pewne zaawansowane mechanizmy takie jak metaklasy pozwalające na stosowanie refleksji oraz elementy paradygmatu funkcyjnego, które mają wpływ na sposób implementacji w Pythonie, jednakże są mało istotne w kontekście omawianego projektu.
 
 \paragraph{C++}
-C++ jest językiem ogólnego przeznaczenia wspierającym wiele paradygmatów. Jego główną zaletą jest szybkość kodu, wynikająca głównie z kompilacji do kodu maszynowego. C++ jest silnie typowany, przez co wiele błędów można wykryć na etapie kompilacji kodu. Niewątpliwą zaletą tego języka jest rozbudowany system szablonów, który pozwala na wykorzystanie zaawansowanych technik metaprogramowania. W \cite{Cpp_turing_complete} wykazano, że szablony C++ są kompletne w sensie Turinga. Oznacza to, że można w nich zaimplementować dowolny algorytm z klasy obliczeniowej rozwiązywalnej na maszynie Turinga. Ciekawym projektem jest \cite{Cpp_snake_compile_time} gdzie zaimplementowano popularną grę Snake z wykorzystaniem szablonów. Polecenia ruchu są zadawane w czasie kompilacji i jednocześnie w trakcie kompilacji są dokonywane wszystkie obliczenia. Restrykcyjność języka może być powodem wolniejszego tempa implementacji w C++. Dodatkowo operacje na zasobach są jedną z najbardziej niebezpiecznych aspektów tego języka. C++ nie posiada garbage collectora, przez co na programiście ciąży obowiązek zwalniania zaalokowanych zasobów. Istnieją w C++ mechanizmy umożliwiające bezpieczne zarządzanie zasobami, jednakże ich stosowanie wymaga dużego nakładu dyscypliny (przykładowo według Scotta Mayersa najważniejszym wynalazkiem języka jest destruktor, który umożliwił pojawienie się idiomu RAII). Pojawienie się nowszych standardów znacząco poprawiło wygodę programistów i bezpieczeństwo operowania na zasobach, przez np. dodanie inteligentnych wskaźników.
+C++ jest językiem ogólnego przeznaczenia wspierającym wiele paradygmatów. Jego główną zaletą jest szybkość kodu, wynikająca głównie z kompilacji do kodu maszynowego. C++ jest silnie typowany, przez co wiele błędów można wykryć na etapie kompilacji kodu. Niewątpliwą zaletą tego języka jest rozbudowany system szablonów, który pozwala na wykorzystanie zaawansowanych technik metaprogramowania. W \cite{Cpp_turing_complete} wykazano, że szablony C++ są kompletne w sensie Turinga. Oznacza to, że można w nich zaimplementować dowolny algorytm z klasy obliczeniowej rozwiązywalnej na maszynie Turinga. Ciekawym projektem jest \cite{Cpp_snake_compile_time}, gdzie zaimplementowano popularną grę Snake z wykorzystaniem szablonów. Polecenia ruchu są zadawane w czasie kompilacji i jednocześnie w trakcie kompilacji są dokonywane wszystkie obliczenia. Restrykcyjność języka może być powodem wolniejszego tempa implementacji w C++. Dodatkowo operacje na zasobach są jedną z najbardziej niebezpiecznych aspektów tego języka. C++ nie posiada garbage collectora, przez co na programiście ciąży obowiązek zwalniania zaalokowanych zasobów. Istnieją w C++ mechanizmy umożliwiające bezpieczne zarządzanie zasobami, jednakże ich stosowanie wymaga dużego nakładu dyscypliny (przykładowo według Scotta Mayersa najważniejszym wynalazkiem języka jest destruktor, który umożliwił pojawienie się idiomu RAII). Pojawienie się nowszych standardów znacząco poprawiło wygodę programistów i bezpieczeństwo operowania na zasobach, przez np. dodanie inteligentnych wskaźników.
 
 \paragraph{Java}
 Java to język w pełni obiektowy, kompilowany do kodu bajtowego. Pełna obiektowość języka oznacza konieczność przynależności zmiennych i funkcji do klas. Nie jest możliwe zadeklarowanie osobnych zmiennych jak to jest możliwe np. w C++. Maszyna wirtualna Javy posiada wiele mechanizmów pozwalających na zwiększenie efektywności programów, takich jak JIT compiler, przez co Java zyskała na popularności w aplikacjach działających po stronie serwera. Dodatkowo wykorzystanie grabage collectora pozwala zmniejsza odpowiedzialność programisty, co przyczynia się do zwiększenia popularności języka.
 
 \paragraph{C\#}
-C\# jest podobnie jak Java językiem czysto obiektowym kompilownym w pierwszym etapie do kodu pośredniego (IL - intermediate language), a następnie do kodu maszynowego za pomocą kompilatora JIT. C\# jest oparty na frameworku .NET.
+C\# jest podobnie jak Java językiem czysto obiektowym kompilowanym w pierwszym etapie do kodu pośredniego (IL - intermediate language), a następnie do kodu maszynowego za pomocą kompilatora JIT. C\# jest oparty na frameworku .NET.
 
 \subsection{Wybór środowisk i narzędzi}
 
@@ -266,7 +264,7 @@ TBD
 
 Zweryfikowano poprawność przygotowanej architektury poprzez sprawdzenie zgodności z zasadami SOLID. Istnieją pewne odstępstwa od tych zasad, ale są one świadomymi kompromisami mającymi na celu uproszczenie projektu (np. podwójna odpowiedzialność klas implementujących IValidationStrategy w komponencie Validation). Nadmierne komplikowanie projektów (ang. overengineering) jest równie poważnym problemem co zbyt prymitywna architektura. Oba te zagadnienia utrudniają rozwijanie aplikacji.
 
-Zastosowanie architektury z podziałem na osobne komponenty oddzielone interfejsami pozwoliło na mockowanie niezaimplelentowanych komponentów i niezależny rozwój pozostałych. Jest to bardzo wygodny sposób pracy, umożliwiający prostsze testowanie aplikacji.
+Zastosowanie architektury z podziałem na osobne komponenty oddzielone interfejsami pozwoliło na mockowanie niezaimplementowanych komponentów i niezależny rozwój pozostałych. Jest to bardzo wygodny sposób pracy, umożliwiający prostsze testowanie aplikacji.
 
 \bibliography{bibliography}
 
