@@ -204,9 +204,15 @@ We frameworku wyszczególniono następujące komponenty:
 	\item ResultAnalyser.
 \end{itemize}
 
-Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. 
 
-TO DO: dodać schematy klas dla komponentów
+\begin{figure}
+\centering
+	\includegraphics[width=0.9\textwidth]{img/ModulesDiagram.jpg}
+	\caption{Schemat modułów systemu}
+	\label{fig:modules_diagram}
+\end{figure}
+
+Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. Schemat komponentów został przedstawiony na rys. \ref{fig:modules_diagram}.
 
 \subsection{Komponent TestPlatform}
 
