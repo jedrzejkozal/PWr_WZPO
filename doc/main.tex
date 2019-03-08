@@ -168,11 +168,6 @@ Przewiduje się następujące przypadki użycia:
 			\item testowania hipotez i przeprowadzania testów post-hoc
 		\end{itemize}
 	\end{itemize}
-	\item przeprowadzania analizy zbioru uczącego:
-	\begin{itemize}
-		\item Analizy niezbalansowania zbioru
-		\item Estymacji VC-dim
-	\end{itemize}
 \end{itemize}
 
 \subsection{Nietypowe przypadki}
@@ -207,7 +202,7 @@ We frameworku wyszczególniono następujące komponenty:
 
 \begin{figure}
 \centering
-	\includegraphics[width=0.9\textwidth]{img/ModulesDiagram.jpg}
+	\includegraphics[width=0.9\textwidth]{img/ModulesDiagram.png}
 	\caption{Schemat modułów systemu.}
 	\label{fig:modules_diagram}
 \end{figure}
@@ -220,30 +215,38 @@ TestPlatform jest odpowiedzialny za konfiguracje eksperymentu, stworzenie wszyst
 
 \begin{figure}
 \centering
-	\includegraphics[width=0.9\textwidth]{img/GeneralFlow.jpg}
+	\includegraphics[width=0.9\textwidth]{img/GeneralFlow.png}
 	\caption{Diagram przepływu w komponecie TestPlatform.}
 	\label{fig:modules_diagram}
 \end{figure}
 
 \subsection{Komponent Dataset}
 
-Dataset odpowiada za nałożenie abstrakcji na zbiory uczące i pozwala na przeprowadzenie analizy zbioru. 
+Dataset odpowiada za nałożenie abstrakcji na zbiory uczące i pozwala na załadowanie zbioru uczącego z dysku. 
 
 \subsection{Komponent Validation}
 
 Głównymi odpowiedzialnościami komponentu są podział datasetu na zbiory uczące i testowe o odpowiedniej liczności według przyjętej strategii. Dodatkowo Validation ma dla wygenerowanych zbiorów testowych i uczących zebrać wyniki osiągane przez algorytm. Wyniki te są wykorzystywane w dalszych etapach eksperymentu, ale komponent Validation jest niezależny od dalej zdefiniowanych operacji.
 
+Struktura ValidationResults zawiera podział na foldy treningowe i testowe dla wszystkich datasetów.
+
 \subsection{Komponent Algorithm}
 
-Komponent jest abstrakcją nałożoną na pojedynczy algorytm uczenia maszynowego, bądź zbiór algorytmów. W zależności od rozwiązywanego zadania (klasyfikacja bądź regresja) wynik działania algorytmu może być różny, tak samo jak przebieg procesu uczenia. Dodatkowo komponent ten przez zastosowanie wzorca projektowego Adapter pozwala uniezależnić implementację algorytmu w wybranych frameworkach uczenia maszynowego od omawianej platformy do testów. 
+Komponent jest abstrakcją nałożoną na pojedynczy algorytm uczenia maszynowego, bądź zbiór algorytmów. Sam algorytm jest tutaj rozumiany jako ciąg kroków zdefiniowany dla danych wejściowych i wyników działania algorytmu. W zależności od rozwiązywanego zadania (klasyfikacja bądź regresja) wynik działania algorytmu może być różny, tak samo jak przebieg procesu uczenia. Dodatkowo komponent ten przez zastosowanie wzorca projektowego Adapter pozwala uniezależnić implementację algorytmu w wybranych frameworkach uczenia maszynowego od omawianej platformy do testów. Komponent wykorzystuje split datasetu zwrócony przez walidation do obliczania wyników. 
+
+\subsection{Komponent ResultCalculator}
+
+Komponent ten jest odpowiedzialny za obliczanie wartości wybranych metryk dla wyników alogrytmów.
 
 \subsection{Komponent ResultAnalyser}
 
-ResultAnalyser ma zapisywać rezultaty eksperymentu, generować i zapisywać wykresy oraz przeprowadzać testy statystyczne na podstawie uzyskanych wyników. 
+ResultAnalyser ma zapisywać rezultaty eksperymentu, generować i zapisywać wykresy oraz przeprowadzać testy statystyczne na podstawie uzyskanych wyników. W trakcie tworzenia komponentu przez interfejs przekazywane są nazwy folderów w których mają być zapisywane wykresy lub wyniki. W trakcie przeprowadzania analizy do komponentu przekazywane są wyniki eksperymentów. Następnie kolejno przeprowadzane są testy post-hoc, zapisywane są wyniki i wygenerowane wykresy. 
 
 \subsection{Projekt API frameworku}
 
 Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, niemniej jednak projekt API frameworku definiuje sposób, w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
+
+Przy konfiguracji systemu rozważano dwie możliwości realizacji. Konfiguracja elementów systemu może odbywać się przez wstrzykiwanie zależności, czyli przekazywanie implementacji interfesjów przez metody buildera, lub przez korzystanie z wartości typy wyliczeniowego do określenia typu obiektu jaki ma być wykorzystany. Pierwsze rozwiązanie ułatwia 
 
 TBD
 
@@ -281,6 +284,7 @@ Zastosowanie architektury z podziałem na osobne komponenty oddzielone interfejs
 
 \bibliography{bibliography}
 
+\newpage
 \listoffigures
 
 
