@@ -208,7 +208,7 @@ We frameworku wyszczególniono następujące komponenty:
 \begin{figure}
 \centering
 	\includegraphics[width=0.9\textwidth]{img/ModulesDiagram.jpg}
-	\caption{Schemat modułów systemu}
+	\caption{Schemat modułów systemu.}
 	\label{fig:modules_diagram}
 \end{figure}
 
@@ -217,6 +217,13 @@ Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \
 \subsection{Komponent TestPlatform}
 
 TestPlatform jest odpowiedzialny za konfiguracje eksperymentu, stworzenie wszystkich niezbędnych obiektów i zapewnienie odpowiedniego przepływu danych. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy. 
+
+\begin{figure}
+\centering
+	\includegraphics[width=0.9\textwidth]{img/GeneralFlow.jpg}
+	\caption{Diagram przepływu w komponecie TestPlatform.}
+	\label{fig:modules_diagram}
+\end{figure}
 
 \subsection{Komponent Dataset}
 
