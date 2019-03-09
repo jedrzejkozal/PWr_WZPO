@@ -9,18 +9,13 @@ public class TestPlatform {
 	private Experiment experiment;
 
 
-	public IResultAnalyser getResultAnalyser() {
-		return this.resultAnalyser;
+	public ExperimentBuilder getExperimentBuilder() {
+		return this.experimentBuilder;
 	}
-
 
 	public void setResultAnalyser(IResultAnalyser resultAnalyser) {
 		// TODO - implement MLTestPlatform.platform.TestPlatform.setResultAnalyser
 		throw new UnsupportedOperationException();
-	}
-
-	public ExperimentBuilder getExperimentBuilder() {
-		return this.experimentBuilder;
 	}
 
 	public void run() {

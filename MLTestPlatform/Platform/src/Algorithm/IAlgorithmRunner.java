@@ -1,8 +1,8 @@
 package Algorithm;
-import Validation.ValidationResults;
+import Validation.DataSplit;
 
 public interface IAlgorithmRunner {
 
-	AlgorithmsResults runAlgorithms(IAlgorithmAdapterHolder aah, ValidationResults vr);
+	AlgorithmsResults runAlgorithms(IAlgorithmAdapterHolder aah, DataSplit vr);
 
 }

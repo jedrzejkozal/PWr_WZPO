@@ -6,7 +6,6 @@ import Algorithm.IAlgorithmAdapterHolder;
 import Algorithm.IAlgorithmRunner;
 import ResultsCalculator.ExperimentResults;
 import ResultsCalculator.IResultsCalculator;
-import ResultsCalculator.ResultsCalculator; // TODO - po co to jest? powinien być sam interfejs
 
 public class Experiment {
 
@@ -36,7 +35,7 @@ public class Experiment {
 	}
 
 
-	public void setResultsCalculator(ResultsCalculator resultsCalculator) {
+	public void setResultsCalculator(IResultsCalculator resultsCalculator) {
 		// TODO - implement MLTestPlatform.platform.Experiment.setResultsCalculator
 		throw new UnsupportedOperationException();
 	}

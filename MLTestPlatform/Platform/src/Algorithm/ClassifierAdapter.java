@@ -1,19 +1,19 @@
 package Algorithm;
 
+import Validation.DataDivision;
+
 public class ClassifierAdapter implements IAlgorithmAdapter {
 
 	private ClassificationImpl classificationImpl;
 
-	public ClassificationImpl getClassificationImpl() {
-		return this.classificationImpl;
+	public void fit(DataDivision division){
+		// TODO - implement Algorithm.ClassifierAdapter.fit
+		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param classificationImpl
-	 */
-	public void setClassificationImpl(ClassificationImpl classificationImpl) {
-		this.classificationImpl = classificationImpl;
+	public SingleFoldAlgResult predict(DataDivision division){
+		// TODO - implement Algorithm.ClassifierAdapter.predict
+		throw new UnsupportedOperationException();
 	}
 
 }

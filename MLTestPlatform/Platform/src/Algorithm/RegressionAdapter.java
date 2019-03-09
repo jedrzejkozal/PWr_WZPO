@@ -1,19 +1,19 @@
 package Algorithm;
 
+import Validation.DataDivision;
+
 public class RegressionAdapter implements IAlgorithmAdapter {
 
 	private RegressionImpl regressionImpl;
 
-	public RegressionImpl getRegressionImpl() {
-		return this.regressionImpl;
+	public void fit(DataDivision division){
+		// TODO - implement Algorithm.RegressionAdapter.fit
+		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param regressionImpl
-	 */
-	public void setRegressionImpl(RegressionImpl regressionImpl) {
-		this.regressionImpl = regressionImpl;
+	public SingleFoldAlgResult predict(DataDivision division){
+		// TODO - implement Algorithm.RegressionAdapter.predict
+		throw new UnsupportedOperationException();
 	}
 
 }

@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e1532b5-211a-4d69-b77a-3b7e44fe7651" name="Default Changelist" comment="" />
+    <list default="true" id="6e1532b5-211a-4d69-b77a-3b7e44fe7651" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmAdapterHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmAdapterHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Algorithm/ClassifierAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Algorithm/ClassifierAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapterHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapterHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Algorithm/RegressionAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Algorithm/RegressionAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Dataset/IDatasetLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Dataset/IDatasetLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Platform/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Platform/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Platform/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Platform/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Platform/TestPlatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Platform/TestPlatform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultAnalyser/ETest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultAnalyser/IResultAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/ResultAnalyser/IResultAnalyser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotSaver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultAnalyser/PostHocTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/ResultAnalyser/PostHocTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultAnalyser/ResultAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/ResultAnalyser/ResultAnalyser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultsCalculator/IMetricHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/ResultsCalculator/IMetricHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultsCalculator/MetricHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/ResultsCalculator/MetricHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/ResultsCalculator/ResultsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/ResultsCalculator/ResultsCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Validation/Cv52.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Validation/Cv52.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Validation/CvKFold.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Validation/CvKFold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Validation/HoldOutValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Validation/HoldOutValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Validation/IValidationStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Validation/IValidationStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platform/src/Validation/ValidationResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/Platform/src/Validation/DataSplit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../diagram/MLTestPlatform.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../diagram/MLTestPlatform.vpp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,23 +37,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Platform/src/Platform/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#127#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Platform/src/Platform/Experiment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="105">
+              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1270#1271#0" expanded="true" />
@@ -36,15 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Platform/src/Platform/TestPlatform.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotSaver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-              <folding>
-                <element signature="e#253#254#0" expanded="true" />
-                <element signature="e#286#287#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -55,12 +71,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ResultAnalyser</find>
+      <find>ResultsCalculator</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -79,28 +97,40 @@
         <option value="$PROJECT_DIR$/Platform/src/MLTestPlatform/Platform/Main.java" />
         <option value="$PROJECT_DIR$/Dataset/src/IDatasetHolder.java" />
         <option value="$PROJECT_DIR$/Platform/src/Platfor/Main.java" />
-        <option value="$PROJECT_DIR$/Platform/src/Platform/Main.java" />
         <option value="$PROJECT_DIR$/Dataset/src/Dataset/IDatasetHolder.java" />
         <option value="$PROJECT_DIR$/Platform/src/Dataset/DatasetLoader.java" />
         <option value="$PROJECT_DIR$/Platform/src/Dataset/DatasetHolder.java" />
-        <option value="$PROJECT_DIR$/Platform/src/Validation/HoldOutValidation.java" />
-        <option value="$PROJECT_DIR$/Platform/src/Validation/CvKFold.java" />
-        <option value="$PROJECT_DIR$/Platform/src/Validation/Cv52.java" />
-        <option value="$PROJECT_DIR$/Platform/src/Validation/IValidationStrategy.java" />
         <option value="$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmRunner.java" />
         <option value="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmRunner.java" />
         <option value="$PROJECT_DIR$/Platform/src/ResultsCalculator/IResultsCalculator.java" />
-        <option value="$PROJECT_DIR$/Platform/src/ResultsCalculator/ResultsCalculator.java" />
         <option value="$PROJECT_DIR$/Platform/src/ResultsCalculator/IMetricCalculator.java" />
         <option value="$PROJECT_DIR$/Platform/src/ResultsCalculator/AccCalculator.java" />
-        <option value="$PROJECT_DIR$/Platform/src/Platform/Experiment.java" />
-        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/PostHocTester.java" />
-        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/IResultAnalyser.java" />
         <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotGenerator.java" />
-        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/ResultAnalyser.java" />
         <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/ResultSaver.java" />
         <option value="$PROJECT_DIR$/Platform/src/Platform/ExperimentBuilder.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Platform/Main.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Platform/Experiment.java" />
         <option value="$PROJECT_DIR$/Platform/src/Platform/TestPlatform.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Dataset/IDatasetLoader.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Validation/IValidationStrategy.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Validation/DataSplit.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Validation/Cv52.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Validation/CvKFold.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Validation/HoldOutValidation.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultsCalculator/IMetricHolder.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultsCalculator/MetricHolder.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultsCalculator/ResultsCalculator.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapterHolder.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmAdapterHolder.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapter.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Algorithm/SingleFoldAlgResult.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Algorithm/ClassifierAdapter.java" />
+        <option value="$PROJECT_DIR$/Platform/src/Algorithm/RegressionAdapter.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/IResultAnalyser.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/PostHocTester.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/IPostHocTester.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/ResultAnalyser.java" />
+        <option value="$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotSaver.java" />
       </list>
     </option>
   </component>
@@ -142,7 +172,7 @@
               <item name="MLTestPlatform" type="462c0819:PsiDirectoryNode" />
               <item name="Platform" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="ResultAnalyser" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -154,7 +184,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552146967406" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552151026522" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -162,6 +192,10 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ResultAnalyser" />
+      <recent name="Algorithm" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Platform/src/ResultAnalyser" />
       <recent name="$PROJECT_DIR$/Platform/src/ResultsCalculator" />
@@ -236,12 +270,12 @@
       <updated>1552136509954</updated>
       <workItem from="1552136514222" duration="2522000" />
       <workItem from="1552139156234" duration="900000" />
-      <workItem from="1552140887961" duration="6348000" />
+      <workItem from="1552140887961" duration="9956000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9770000" />
+    <option name="totallyTimeSpent" value="13378000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -303,6 +337,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Platform/ExperimentBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Platform/TestPlatform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Dataset/DatasetLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/Dataset/Dataset.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -311,85 +366,75 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/Dataset/IDatasetLoader.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Dataset/DatasetLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/Dataset/DatasetHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Validation/ValidationResults.java">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/Platform/src/Dataset/IDatasetHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Validation/HoldOutValidation.java">
+    <entry file="file://$PROJECT_DIR$/Platform/src/Validation/DataDivision.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="14" />
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Platform/Main.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Validation/Cv52.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/Validation/CvKFold.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Validation/Cv52.java">
+    <entry file="file://$PROJECT_DIR$/Platform/src/Validation/HoldOutValidation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="90">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Validation/DataSplit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/Validation/IValidationStrategy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/IResultsCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/IMetricHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/ResultsCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
@@ -403,49 +448,147 @@
     <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/AccCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/PostHocTester.java">
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/MetricResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/MetricHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/ResultsCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/ExperimentResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultsCalculator/IResultsCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/IResultAnalyser.java">
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapterHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotGenerator.java">
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/SingleFoldAlgResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/ClassifierAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/RegressionAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/AlgorithmAdapterHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/Algorithm/IAlgorithmRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/PostHocTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="52" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/IPostHocTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/IResultAnalyser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/ResultAnalyser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="300">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/ResultSaver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Platform/src/Platform/Experiment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="105">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1270#1271#0" expanded="true" />
@@ -454,38 +597,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Platform/ExperimentBuilder.java">
+    <entry file="file://$PROJECT_DIR$/Platform/src/ResultAnalyser/PlotSaver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Dataset/IDatasetHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Platform/TestPlatform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#286#287#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Platform/src/Platform/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#127#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

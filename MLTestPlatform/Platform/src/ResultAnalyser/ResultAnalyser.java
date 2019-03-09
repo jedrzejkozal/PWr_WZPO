@@ -18,7 +18,7 @@ public class ResultAnalyser implements IResultAnalyser {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setPostHocTester(ETest test) {
+	public void setPostHocTester(IPostHocTester test) {
 		// TODO - implement MLTestPlatform.analysis.ResultAnalyser.setPostHocTester
 		throw new UnsupportedOperationException();
 	}

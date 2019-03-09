@@ -9,10 +9,6 @@ public class AlgorithmAdapterHolder implements IAlgorithmAdapterHolder {
 		return this.algorithmAdapters;
 	}
 
-	/**
-	 * 
-	 * @param algorithmAdapter
-	 */
 	public void addAlgorithmAdapter(IAlgorithmAdapter algorithmAdapter) {
 		// TODO - implement AlgorithmAdapterHolder.addAlgorithmAdapter
 		throw new UnsupportedOperationException();
