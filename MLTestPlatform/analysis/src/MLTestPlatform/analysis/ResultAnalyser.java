@@ -1,5 +1,7 @@
 package MLTestPlatform.analysis;
 
+import MLTestPlatform.results.ExperimentResults;
+
 public class ResultAnalyser implements IResultAnalyser {
 
 	private ResultSaver resultSaver;
