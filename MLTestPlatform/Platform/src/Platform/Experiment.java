@@ -1,11 +1,15 @@
 package Platform;
 
+import Algorithm.AlgorithmsResults;
+import Dataset.Dataset;
 import Dataset.IDatasetHolder;
+import ResultsCalculator.*;
+import Validation.DataSplit;
 import Validation.IValidationStrategy;
 import Algorithm.IAlgorithmAdapterHolder;
 import Algorithm.IAlgorithmRunner;
-import ResultsCalculator.ExperimentResults;
-import ResultsCalculator.IResultsCalculator;
+
+import java.util.List;
 
 public class Experiment {
 
@@ -16,33 +20,38 @@ public class Experiment {
 	private IResultsCalculator resultsCalculator;
 
 	public void setDatasetHolder(IDatasetHolder datasetHolder) {
-		// TODO - implement MLTestPlatform.platform.Experiment.setDatasetHolder
-		throw new UnsupportedOperationException();
+		System.out.println("Experiment.setDatasetHolder");
+		this.datasetHolder = datasetHolder;
 	}
 
 	public void setValidationStrategy(IValidationStrategy validationStrategy) {
-		// TODO - implement MLTestPlatform.platform.Experiment.setValidationStrategy
-		throw new UnsupportedOperationException();
+		System.out.println("Experiment.setValidationStrategy");
+		this.validationStrategy = validationStrategy;
 	}
 
 	public void setAlgorithmAdapterHolder(IAlgorithmAdapterHolder algorithmAdapterHolder) {
-		// TODO - implement MLTestPlatform.platform.Experiment.setAlgorithmAdapterHolder
-		throw new UnsupportedOperationException();
+		System.out.println("Experiment.setAlgorithmAdapterHolder");
+		this.algorithmAdapterHolder = algorithmAdapterHolder;
 	}
 
 	public void setAlgorithmRunner(IAlgorithmRunner algorithmRunner) {
+		System.out.println("Experiment.setAlgorithmRunner");
 		this.algorithmRunner = algorithmRunner;
 	}
 
-
 	public void setResultsCalculator(IResultsCalculator resultsCalculator) {
-		// TODO - implement MLTestPlatform.platform.Experiment.setResultsCalculator
-		throw new UnsupportedOperationException();
+		System.out.println("Experiment.setResultsCalculator");
+		this.resultsCalculator = resultsCalculator;
 	}
 
 	public ExperimentResults runExperiment() {
-		// TODO - implement MLTestPlatform.platform.Experiment.runExperiment
-		throw new UnsupportedOperationException();
+		System.out.println("Experiment.runExperiment : starting the experiment execution");
+
+		DataSplit dataSplit = this.validationStrategy.getDataSplit(this.datasetHolder);
+		AlgorithmsResults algResults = this.algorithmRunner.runAlgorithms(this.algorithmAdapterHolder, dataSplit);
+		ExperimentResults expResults = this.resultsCalculator.calculateResults(algResults, new MetricHolder()); //TODO: send field of type IMetricCalculator
+
+		return expResults;
 	}
 
 }

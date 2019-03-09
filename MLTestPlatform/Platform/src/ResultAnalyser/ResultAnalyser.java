@@ -9,23 +9,19 @@ public class ResultAnalyser implements IResultAnalyser {
 	private PostHocTester postHocTester;
 
 	public void setResultSaver(String directory) {
-		// TODO - implement MLTestPlatform.analysis.ResultAnalyser.setResultSaver
-		throw new UnsupportedOperationException();
+		System.out.println("ResultAnalyser.setResultSaver");
 	}
 
 	public void setPlotSaver(String directory) {
-		// TODO - implement MLTestPlatform.analysis.ResultAnalyser.setPlotSaver
-		throw new UnsupportedOperationException();
+		System.out.println("ResultAnalyser.setPlotSaver");
 	}
 
 	public void setPostHocTester(IPostHocTester test) {
-		// TODO - implement MLTestPlatform.analysis.ResultAnalyser.setPostHocTester
-		throw new UnsupportedOperationException();
+		System.out.println("ResultAnalyser.setPostHocTester");
 	}
 
 	public void analyseResults(ExperimentResults results) {
-		// TODO - implement MLTestPlatform.analysis.ResultAnalyser.analyseResults
-		throw new UnsupportedOperationException();
+		System.out.println("ResultAnalyser.analyseResults");
 	}
 
 }

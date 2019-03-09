@@ -1,6 +1,8 @@
 package Platform;
 
 import ResultAnalyser.IResultAnalyser;
+import ResultAnalyser.ResultAnalyser;
+import ResultsCalculator.ExperimentResults;
 
 public class TestPlatform {
 
@@ -8,18 +10,22 @@ public class TestPlatform {
 	private ExperimentBuilder experimentBuilder;
 	private Experiment experiment;
 
+	public TestPlatform(){
+		experimentBuilder = new ExperimentBuilder();
+		resultAnalyser = new ResultAnalyser();
+	}
 
 	public ExperimentBuilder getExperimentBuilder() {
 		return this.experimentBuilder;
 	}
 
 	public void setResultAnalyser(IResultAnalyser resultAnalyser) {
-		// TODO - implement MLTestPlatform.platform.TestPlatform.setResultAnalyser
-		throw new UnsupportedOperationException();
+		this.resultAnalyser = resultAnalyser;
 	}
 
 	public void run() {
-		// TODO - implmenent run
+		this.experiment = experimentBuilder.build();
+		ExperimentResults experimentResults = this.experiment.runExperiment();
+		this.resultAnalyser.analyseResults(experimentResults);
 	}
-
 }
