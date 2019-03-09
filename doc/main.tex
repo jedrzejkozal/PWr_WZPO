@@ -303,7 +303,16 @@ Przy konfiguracji systemu rozważano dwie możliwości realizacji. Konfiguracja 
 
 W projekcie wybrano pierwszą opcję ze względu zwiększoną testowalność kodu i wspomnianą elastyczność. Cała biblioteka została zaprojektowana w sposób ułatwiający rozszerzanie funkcjonalności przez zastosowanie osobnych komponentów i interfejsów. Jest wskazane, aby użytkownik implementował własne rozwiązania dostosowane do własnych potrzeb. Wybranie drugiej metody ograniczyłoby najważniejszą zaletę biblioteki.
 
-Żeby skorzystać z frameworku użytkownik musi utworzyć instancję klasy TestPlatform, a następnie skonfigurwać klasę eksperyment z wykorzystaniem Buildera poprzez wstrzykiwanie zależności i skonfigurowanie modułu do analizy wyników. 
+Żeby skorzystać z frameworku użytkownik musi utworzyć instancję klasy TestPlatform, a następnie skonfigurwać klasę eksperyment z wykorzystaniem Buildera poprzez wstrzykiwanie zależności i skonfigurowanie modułu do analizy wyników. Komunikacja klienta z frameworkiem została zobrazowana na diagramie \ref{fig:sequenceUser}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/sequenceUser.png}
+	\caption{Diagram komunikacji użytkownika z frameworkiem.}
+	\label{fig:sequenceUser}
+\end{figure}
+
+
 
 \section{Kwestie implementacyjne}
 %6. Kwestie implementacyjne Na tym etapie zastanawiamy nad wyborem języków implementacji, środowisk i narzędzi.
@@ -327,12 +336,11 @@ Java to język w pełni obiektowy, kompilowany do kodu bajtowego. Pełna obiekto
 C\# jest podobnie jak Java językiem czysto obiektowym kompilowanym w pierwszym etapie do kodu pośredniego (IL - intermediate language), a następnie do kodu maszynowego za pomocą kompilatora JIT. C\# jest oparty na frameworku .NET.
 
 \subsection{Wybór środowisk i narzędzi}
-Jako język realizacji projektu wybrano Javę. Motywacją decyzji była przede wszystkim pełna obiektowość tego języka, co pozwoliło na dogodną implementa
+Jako środowisko realizacji projektu wybrano Javę. Motywacją decyzji była przede wszystkim pełna obiektowość tego języka, co pozwala na dogodną implementację zaprojektowanej architektury.
+Inne języki obiektowe takie jak C\# i Smalltalk odrzucono ze względu na ich mniejszą znajomość w zespole.
+Zaletą wybranego środowiska jest także mnogość dostępnych narzędzi oraz duża społeczność, co może mieć wpływ na przyspieszenie realizacji projektu.
 
-
-TODO - w pełni obiektowa, łatwo przełożyć idee projektu
-TODO - Inne języki jak C\#, Smalltals, javę wybrano ze względu na najlepszą jej znajomość w zespole.
-TODO - Ponadto wiele dostępnych narzędzi i duża społeczność.
+TODO: IDE, UT framework, lintery, sanitizery?
 
 
 \section{Podsumowanie i dyskusja krytyczna}
