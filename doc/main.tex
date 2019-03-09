@@ -236,6 +236,8 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig
 	\label{fig:sequenceDataset}
 \end{figure}
 
+Istnieją różne typy cech: ciągłe, dyskretne, binarne. Rozróżnianie typów cech wymuszałoby zastosowanie dodatkowego interfejsu opisującego rodzaj atrybutów. Następnie przy wczytywaniu bazy istniałaby konieczność rozpoznawania cech na podstawie przykładowych rekordów lub przy wykorzystaniu informacji o typie kolumn zawierających wybrane rekordy. Następnie informacja o typie atrybutu musiałby być wykorzystana przez algorytm - istnieją algorytmy dedykowane dla danych binarnych, dyskretnych lub ciągłych. Wprowadza to wiele komplikacji w strukturze biblioteki, podczas gdy najbardziej popularne algorytmy uczenia maszynowego wykorzystują jedynie wejścia będące wektorami wartości ciągłych. Kierując się tymi pragmatycznymi pobudkami zastosowano uproszczenie polegające na konwertowaniu danych do wartości ciągłych i normalizacji. Jest to prostsze rozwiązanie, które w większości przypadków nie będzie miało wpływu na możliwości oferowane przez bibliotekę.
+
 \subsection{Komponent Validation}
 
 Głównymi odpowiedzialnościami komponentu są podział datasetu na zbiory uczące i testowe o odpowiedniej liczności według przyjętej strategii. Dodatkowo Validation ma dla wygenerowanych zbiorów testowych i uczących zebrać wyniki osiągane przez algorytm. Wyniki te są wykorzystywane w dalszych etapach eksperymentu, ale komponent Validation jest niezależny od dalej zdefiniowanych operacji.
