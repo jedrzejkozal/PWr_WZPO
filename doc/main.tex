@@ -196,6 +196,7 @@ We frameworku wyszczególniono następujące komponenty:
 	\item Dataset,
 	\item Validation,
 	\item Algorithm,
+	\item ResultCalculator,
 	\item ResultAnalyser.
 \end{itemize}
 
@@ -207,14 +208,15 @@ We frameworku wyszczególniono następujące komponenty:
 	\label{fig:modules_diagram}
 \end{figure}
 
-Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. Schemat komponentów został przedstawiony na rys. \ref{fig:modules_diagram}.
+Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultCalculator i ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. Schemat komponentów został przedstawiony na rys. \ref{fig:modules_diagram}.
 
 \subsection{Komponent TestPlatform}
 
 TestPlatform jest odpowiedzialny za konfiguracje eksperymentu, stworzenie wszystkich niezbędnych obiektów i zapewnienie odpowiedniego przepływu danych. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy. 
 
+Komponent udostępnia użytkownikowi obiekt klasy ExperimentBuilder, który umożliwia skonfigurowanie badań. ...
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceTestPlatform}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceTestPlatform}. Komunikacja użytkownika z frameworkiem została bardziej szczegółowo omówiona w rozdziale \ref{ch:api}.
 
 \begin{figure}
 \centering
@@ -222,6 +224,8 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig
 	\caption{Diagram przepływu w komponecie TestPlatform.}
 	\label{fig:sequenceTestPlatform}
 \end{figure}
+
+
 
 \subsection{Komponent Dataset}
 
@@ -296,6 +300,7 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig
 
 
 \subsection{Projekt API frameworku}
+\label{ch:api}
 
 Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, niemniej jednak projekt API frameworku definiuje sposób, w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
 
