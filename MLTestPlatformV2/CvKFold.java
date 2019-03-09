@@ -4,8 +4,8 @@ public class CvKFold implements IValidationStrategy {
 	 * 
 	 * @param datasetHolder
 	 */
-	public void getValidation(IDatasetHolder datasetHolder) {
-		// TODO - implement CvKFold.getValidation
+	public DataSplit getDataSplit(IDatasetHolder datasetHolder) {
+		// TODO - implement CvKFold.getDataSplit
 		throw new UnsupportedOperationException();
 	}
 

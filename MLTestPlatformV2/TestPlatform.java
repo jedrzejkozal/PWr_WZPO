@@ -16,4 +16,9 @@ public class TestPlatform {
 		this.resultAnalyser = resultAnalyser;
 	}
 
+	public void run() {
+		// TODO - implement TestPlatform.run
+		throw new UnsupportedOperationException();
+	}
+
 }

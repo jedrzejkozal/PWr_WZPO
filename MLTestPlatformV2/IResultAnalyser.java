@@ -14,9 +14,9 @@ public interface IResultAnalyser {
 
 	/**
 	 * 
-	 * @param test
+	 * @param postHocTester
 	 */
-	void setPostHocTester(ETest test);
+	void setPostHocTester(IPostHocTester postHocTester);
 
 	/**
 	 * 

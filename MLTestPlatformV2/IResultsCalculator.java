@@ -2,9 +2,9 @@ public interface IResultsCalculator {
 
 	/**
 	 * 
-	 * @param algorithmsResults
+	 * @param results
 	 * @param metricHolder
 	 */
-	ExperimentResults calculateResults(AlgorithmsResults algorithmsResults, IMetricHolder metricHolder);
+	ExperimentResults calculateResults(AlgorithmsResults results, IMetricHolder metricHolder);
 
 }

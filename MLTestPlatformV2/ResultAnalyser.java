@@ -24,9 +24,9 @@ public class ResultAnalyser implements IResultAnalyser {
 
 	/**
 	 * 
-	 * @param test
+	 * @param postHocTester
 	 */
-	public void setPostHocTester(ETest test) {
+	public void setPostHocTester(IPostHocTester postHocTester) {
 		// TODO - implement ResultAnalyser.setPostHocTester
 		throw new UnsupportedOperationException();
 	}

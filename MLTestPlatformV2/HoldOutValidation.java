@@ -4,8 +4,8 @@ public class HoldOutValidation implements IValidationStrategy {
 	 * 
 	 * @param datasetHolder
 	 */
-	public void getValidation(IDatasetHolder datasetHolder) {
-		// TODO - implement HoldOutValidation.getValidation
+	public DataSplit getDataSplit(IDatasetHolder datasetHolder) {
+		// TODO - implement HoldOutValidation.getDataSplit
 		throw new UnsupportedOperationException();
 	}
 

@@ -4,6 +4,6 @@ public interface IValidationStrategy {
 	 * 
 	 * @param datasetHolder
 	 */
-	void getValidation(IDatasetHolder datasetHolder);
+	DataSplit getDataSplit(IDatasetHolder datasetHolder);
 
 }

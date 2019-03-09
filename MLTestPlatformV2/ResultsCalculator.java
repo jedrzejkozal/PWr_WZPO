@@ -2,10 +2,10 @@ public class ResultsCalculator implements IResultsCalculator {
 
 	/**
 	 * 
-	 * @param algorithmsResults
+	 * @param results
 	 * @param metricHolder
 	 */
-	public ExperimentResults calculateResults(AlgorithmsResults algorithmsResults, IMetricHolder metricHolder) {
+	public ExperimentResults calculateResults(AlgorithmsResults results, IMetricHolder metricHolder) {
 		// TODO - implement ResultsCalculator.calculateResults
 		throw new UnsupportedOperationException();
 	}
