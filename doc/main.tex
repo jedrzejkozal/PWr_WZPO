@@ -213,16 +213,28 @@ Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \
 
 TestPlatform jest odpowiedzialny za konfiguracje eksperymentu, stworzenie wszystkich niezbędnych obiektów i zapewnienie odpowiedniego przepływu danych. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy. 
 
+
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceTestPlatform}.
+
 \begin{figure}
 \centering
 	\includegraphics[width=0.9\textwidth]{img/GeneralFlow.png}
 	\caption{Diagram przepływu w komponecie TestPlatform.}
-	\label{fig:modules_diagram}
+	\label{fig:sequenceTestPlatform}
 \end{figure}
 
 \subsection{Komponent Dataset}
 
 Dataset odpowiada za nałożenie abstrakcji na zbiory uczące i pozwala na załadowanie zbioru uczącego z dysku. 
+
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceDataset}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/sequenceDataset.png}
+	\caption{Diagram przepływu w komponecie Dataset.}
+	\label{fig:sequenceDataset}
+\end{figure}
 
 \subsection{Komponent Validation}
 
@@ -230,17 +242,56 @@ Głównymi odpowiedzialnościami komponentu są podział datasetu na zbiory ucz�
 
 Struktura ValidationResults zawiera podział na foldy treningowe i testowe dla wszystkich datasetów.
 
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceValidation}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/sequenceValidation.png}
+	\caption{Diagram przepływu w komponecie Validation.}
+	\label{fig:sequenceValidation}
+\end{figure}
+
 \subsection{Komponent Algorithm}
 
 Komponent jest abstrakcją nałożoną na pojedynczy algorytm uczenia maszynowego, bądź zbiór algorytmów. Sam algorytm jest tutaj rozumiany jako ciąg kroków zdefiniowany dla danych wejściowych i wyników działania algorytmu. W zależności od rozwiązywanego zadania (klasyfikacja bądź regresja) wynik działania algorytmu może być różny, tak samo jak przebieg procesu uczenia. Dodatkowo komponent ten przez zastosowanie wzorca projektowego Adapter pozwala uniezależnić implementację algorytmu w wybranych frameworkach uczenia maszynowego od omawianej platformy do testów. Komponent wykorzystuje split datasetu zwrócony przez walidation do obliczania wyników. 
+
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceAlgorithm}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/sequenceAlgorithm.png}
+	\caption{Diagram przepływu w komponecie Algorithm.}
+	\label{fig:sequenceAlgorithm}
+\end{figure}
 
 \subsection{Komponent ResultCalculator}
 
 Komponent ten jest odpowiedzialny za obliczanie wartości wybranych metryk dla wyników alogrytmów.
 
+
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceResultCalculator}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/sequenceResultCalculator.png}
+	\caption{Diagram przepływu w komponecie ResultCalculator.}
+	\label{fig:sequenceResultCalculator}
+\end{figure}
+
 \subsection{Komponent ResultAnalyser}
 
 ResultAnalyser ma zapisywać rezultaty eksperymentu, generować i zapisywać wykresy oraz przeprowadzać testy statystyczne na podstawie uzyskanych wyników. W trakcie tworzenia komponentu przez interfejs przekazywane są nazwy folderów w których mają być zapisywane wykresy lub wyniki. W trakcie przeprowadzania analizy do komponentu przekazywane są wyniki eksperymentów. Następnie kolejno przeprowadzane są testy post-hoc, zapisywane są wyniki i wygenerowane wykresy. 
+
+
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceResultAnalyser}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/sequenceResultAnalyser.png}
+	\caption{Diagram przepływu w komponecie ResultAnalyser.}
+	\label{fig:sequenceResultAnalyser}
+\end{figure}
+
 
 \subsection{Projekt API frameworku}
 
