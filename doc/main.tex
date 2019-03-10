@@ -237,33 +237,49 @@ Komponent udostępnia użytkownikowi obiekt klasy ExperimentBuilder, który umo�
 
 Klasa Experiment ma za zadanie przechowywać konfigurację całego projektu i wywoływać kolejno wszystkie komponenty w celu przeprowadzenia koniecznych obliczeń. Jest to klasa będąca realizacją wzorca mediator, ponieważ umożliwia komunikację między wieloma komponentami i klasami. Można zarzucić, że klasa ta posiada podwójną odpowiedzialność - implementuję logikę eksperymentu i odpowiada za komunikację między komponentami. Rozdzielenie tych odpowiedzialności owocowałoby powstaniem bardzo abstrakcyjnej klasy odpowiedzialnej za logikę i kolejność wykonywania operacji, która byłaby zależna od interfejsu publicznego mediatora. Mediator z kolei byłby uzależniony od interfejsów wybranych komponentów. Byłyby to klasy o bardzo wysokim powiązaniu (ang. coupling). Zaletą takiego rozwiązania byłoby uniezależnienie logiki od tego w jaki sposób są skonfigurowane komponenty, jakie są ich odpowiedzialności i ile ich występuje. Ułatwiłoby to także podział komponentów i dodawanie nowych. Jednakże dodawanie nowych komponentów byłoby związane ze zmianami w logice, więc konieczne byłoby zmiany zarówno w mediatorze jak i klasie przechowującej logikę. Biorąc pod uwagę wszystkie argumenty wybrano użycie jednej klasy, w celu zachowania prostoty.
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceTestPlatform}. Komunikacja użytkownika z frameworkiem została bardziej szczegółowo omówiona w rozdziale \ref{ch:api}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classTestPlatform} i \ref{fig:sequenceTestPlatform}. Komunikacja użytkownika z frameworkiem została bardziej szczegółowo omówiona w rozdziale \ref{ch:api}.
 
-\begin{figure}
+\newpage
+\begin{figure}[!h]
 \centering
 	\includegraphics[width=0.9\textwidth]{img/sequenceTestPlatform.png}
 	\caption{Diagram przepływu w komponecie TestPlatform.}
 	\label{fig:sequenceTestPlatform}
 \end{figure}
 
-
+\begin{figure}[!h]
+\centering
+	\includegraphics[width=0.9\textwidth]{img/class_diagrams/test_platform.png}
+	\caption{Diagram klas w komponecie TestPlatform.}
+	\label{fig:classTestPlatform}
+\end{figure}
+\newpage
 
 \subsection{Komponent Dataset}
 
 Dataset odpowiada za nałożenie abstrakcji na zbiory uczące i pozwala na załadowanie zbioru uczącego z dysku. 
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceDataset}.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/sequenceDataset.png}
-	\caption{Diagram przepływu w komponecie Dataset.}
-	\label{fig:sequenceDataset}
-\end{figure}
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classDataset} i \ref{fig:sequenceDataset}.
 
 Istnieją różne typy cech: ciągłe, dyskretne, binarne. Rozróżnianie typów cech wymuszałoby zastosowanie dodatkowego interfejsu opisującego rodzaj atrybutów. Następnie przy wczytywaniu bazy istniałaby konieczność rozpoznawania cech na podstawie przykładowych rekordów lub przy wykorzystaniu informacji o typie kolumn zawierających wybrane rekordy. Następnie informacja o typie atrybutu musiałby być wykorzystana przez algorytm - istnieją algorytmy dedykowane dla danych binarnych, dyskretnych lub ciągłych. Wprowadza to wiele komplikacji w strukturze biblioteki, podczas gdy najbardziej popularne algorytmy uczenia maszynowego wykorzystują jedynie wejścia będące wektorami wartości ciągłych. Kierując się tymi pragmatycznymi pobudkami zastosowano uproszczenie polegające na konwertowaniu danych do wartości ciągłych i normalizacji. Jest to prostsze rozwiązanie, które w większości przypadków nie będzie miało wpływu na możliwości oferowane przez bibliotekę.
 
 Klasa DatasetHolder odpowiada za przechowywanie kolekcji zbiorów danych wykorzystywanych w eksperymencie. Klasa DatasetLoader odpowiada za logikę wczytywania bazy danych z dysku. W przypadku w którym zbiór uczący mógłby pochodzić z innego źródła (np. mógłby być pobrany przez protokół sieciowy), byłoby wskazane aby DatasetLoader był interfejsem. Jednakże sytuacje takie nie są typowe, przez co zdecydowano się na pominięcie interfejsu w tej sytuacji. Dataset jest strukturą danych przechowującą skonwertowany zbiór uczący.
+
+\newpage
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/sequenceDataset.png}
+	\caption{Diagram przepływu w komponecie Dataset.}
+	\label{fig:sequenceDataset}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+	\includegraphics[width=0.7\textwidth]{img/class_diagrams/dataset.png}
+	\caption{Diagram klas w komponecie Dataset.}
+	\label{fig:classDataset}
+\end{figure}
+\newpage
 
 \subsection{Komponent Validation}
 
@@ -271,14 +287,22 @@ Odpowiedzialnością komponentu jest podział datasetów na zbiory uczące i tes
 
 Komponent składa się głównie interfejsu IValidationStrategy i jego implementacji. Każda z implementacji realizuje inny sposób podziału zbiorów na zbiory uczące i testowe. Wartością zwracaną dla tych operacji jest struktura ValidationResults. Struktura ta zawiera podział na foldy treningowe i testowe dla wszystkich datasetów wykorzystywanych w eksperymencie. 
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceValidation}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:Validation} i \ref{fig:sequenceValidation}.
 
-\begin{figure}
+\begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/sequenceValidation.png}
+	\includegraphics[width=0.7\textwidth]{img/sequenceValidation.png}
 	\caption{Diagram przepływu w komponecie Validation.}
 	\label{fig:sequenceValidation}
 \end{figure}
+
+\begin{figure}[!h]
+\centering
+	\includegraphics[width=1.0\textwidth]{img/class_diagrams/validation.png}
+	\caption{Diagram klas w komponecie Validation.}
+	\label{fig:Validation}
+\end{figure}
+\newpage
 
 \subsection{Komponent Algorithm}
 
@@ -286,14 +310,22 @@ Komponent jest abstrakcją nałożoną na pojedynczy algorytm uczenia maszynoweg
  
 Klasa AlgorithmAdapterHolder odpowiada za przechowywanie kolekcji algorytmów. Klasa AlgoritmAdapter pozwala uniezależnić implementację algorytmu w wybranych frameworkach uczenia maszynowego od omawianej platformy do testów. Przykładowo użytkownik może sam napisać własną implementację wybranego algorytmu lub skorzystać z mocno zoptymalizowanych implementacji algorytmów dostępnych w różnych bibliotekach takich jak Tensorflow. AlgorithmAdapter pozwalana na przeprowadzonie procesów uczenia i ewaluacji algorytmów na wybranym zbiorze. Wynikiem ewaluacji jest Struktura SingleFoldAlgResult. Klasa AlgorithmRunner wykorzystuje IAlgoritmHoler do wyznaczenia wyników działania algorytmów na wybranych foldach, czego wynikiem jest zwrócenie struktury AlgorithmResults.
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceAlgorithm}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classAlgorithm} i \ref{fig:sequenceAlgorithm}.
 
-\begin{figure}
+\begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/sequenceAlgorithm.png}
 	\caption{Diagram przepływu w komponecie Algorithm.}
 	\label{fig:sequenceAlgorithm}
 \end{figure}
+
+\begin{figure}[!h]
+\centering
+	\includegraphics[width=1.0\textwidth]{img/class_diagrams/algorithm.png}
+	\caption{Diagram klas w komponecie Algorithm.}
+	\label{fig:classAlgorithm}
+\end{figure}
+\newpage
 
 \subsection{Komponent ResultCalculator}
 
@@ -302,13 +334,20 @@ Komponent ten jest odpowiedzialny za obliczanie wartości wybranych metryk dla w
 Klasa MetricHolder pozwala na przechowywanie kolekcji metryk stosowanych w eksperymencie. Interfejs IMetricCalculator definuję abstrakcyjną operację obliczania metryki na podstawie wyników działania algorytmów. Zastosowanie interfejsu pozwala na łatwe definiowanie przez użytkownika nowych metryk na własne potrzeby. MetricCalculator zwraca strukturę MetricResults. Klasa ResultsCalculator korzysta z MetricHolder do zaplikowania wszystkich metryk do wszystkich wyników algorytmów. Klasa ta zwraca strukturę ExperimentResults.
 
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceResultsCalculator}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classResultsCalculator} i \ref{fig:sequenceResultsCalculator}.
 
-\begin{figure}
+\begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/sequenceResultsCalculator.png}
 	\caption{Diagram przepływu w komponecie ResultsCalculator.}
 	\label{fig:sequenceResultsCalculator}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+	\includegraphics[width=0.9\textwidth]{img/class_diagrams/results_calc.png}
+	\caption{Diagram klas w komponecie ResultsCalculator.}
+	\label{fig:classResultsCalculator}
 \end{figure}
 
 \subsection{Komponent ResultAnalyser}
@@ -318,15 +357,22 @@ ResultAnalyser ma zapisywać rezultaty eksperymentu, generować i zapisywać wyk
 W trakcie przeprowadzania analizy wyników działania do komponentu przekazywane są wyniki eksperymentów. Następnie kolejno przeprowadzane są testy post-hoc (klasa PostHocTester), zapisywane są wyniki (klasa ResultSaver), generowane i zapisywane są wykresy (klasa PlotGenerator wytwarza strukturę Plots, które jest następnie przekazywana do klasy PlotSaver). W komponencie zastosowano interfejs do uogólnienia operacji przeprowadzania testów post-hoc. Pozwala to na zaimplementowanie własnych testów PostHoc. Klasa PostHocTester wytwarza strukturę PostHocResults.
 
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig:sequenceResultAnalyser}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classResultAnalyser} i \ref{fig:sequenceResultAnalyser}.
 
-\begin{figure}
+\begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/sequenceResultAnalyser.png}
 	\caption{Diagram przepływu w komponecie ResultAnalyser.}
 	\label{fig:sequenceResultAnalyser}
 \end{figure}
 
+\begin{figure}[!h]
+\centering
+	\includegraphics[width=1.2\textwidth]{img/class_diagrams/result_analyser.png}
+	\caption{Diagram klas w komponecie ResultAnalyser.}
+	\label{fig:classResultAnalyser}
+\end{figure}
+\newpage
 
 
 \section{Kwestie implementacyjne}
