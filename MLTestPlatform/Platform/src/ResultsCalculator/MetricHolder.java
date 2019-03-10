@@ -1,17 +1,19 @@
 package ResultsCalculator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MetricHolder implements IMetricHolder {
 
-	private List<IMetricCalculator> metricCalculators;
+	private List<IMetricCalculator> metricCalculators = new ArrayList<>();
 
 	public void addMetricCalculator(IMetricCalculator metricCalculator) {
-		// TODO - implement MLTestPlatform.metrics.MetricHolder.addMetricCalculator
-		throw new UnsupportedOperationException();
+		System.out.println("MetricHolder.addMetricCalculator");
+		metricCalculators.add(metricCalculator);
 	}
 
 	public List<IMetricCalculator> getMetricCalculators() {
+	    System.out.println("MetricHolder.getMetricCalculators");
 		return this.metricCalculators;
 	}
 
