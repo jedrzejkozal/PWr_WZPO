@@ -4,7 +4,7 @@ import Validation.DataDivision;
 
 public class ClassifierAdapter implements IAlgorithmAdapter {
 
-	private ClassificationImpl classificationImpl;
+	private ClassificationImpl classificationImpl = new ClassificationImpl();
 
 	public void fit(DataDivision division){
 		System.out.println("ClassifierAdapter.fit");
