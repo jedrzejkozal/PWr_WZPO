@@ -7,6 +7,6 @@ public interface IResultAnalyser {
 	void setResultSaver(String directory);
 	void setPlotSaver(String directory);
 	void setPostHocTester(IPostHocTester test);
-	void analyseResults(ExperimentResults results);
+	void analyseResults(ExperimentResults results, String resultsFilename, String plotsFilename);
 
 }

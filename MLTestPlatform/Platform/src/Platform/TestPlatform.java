@@ -26,6 +26,6 @@ public class TestPlatform {
 	public void run() {
 		this.experiment = experimentBuilder.build();
 		ExperimentResults experimentResults = this.experiment.runExperiment();
-		this.resultAnalyser.analyseResults(experimentResults);
+		this.resultAnalyser.analyseResults(experimentResults, "resultsFilename", "plotsFilename");
 	}
 }

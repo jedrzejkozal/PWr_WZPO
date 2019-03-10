@@ -5,8 +5,8 @@ import ResultsCalculator.ExperimentResults;
 public class PlotGenerator {
 
 	public Plots preparePlots(ExperimentResults results) {
-		// TODO - implement MLTestPlatform.analysis.PlotGenerator.preparePlots
-		throw new UnsupportedOperationException();
+		System.out.println("PlotGenerator.preparePlots");
+		return new Plots();
 	}
 
 }

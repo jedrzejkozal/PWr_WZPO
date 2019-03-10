@@ -46,7 +46,7 @@ public class Experiment {
 	}
 
 	public void setMetricHolder(IMetricHolder elem) {
-		System.out.println("Experiment.runExperiment : starting the experiment execution");
+		System.out.println("Experiment.setMetricHolder");
 		this.metricHolder = elem;
 	}
 
