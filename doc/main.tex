@@ -67,7 +67,6 @@ W trakcie prac nad projektem wykorzystano następujące wzorce projektowe:
 	\item Budowniczy,
 	\item Adapter,
 	\item Strategia,
-	\item Kompozyt,
 	\item Polecenie,
 	\item Mediator.
 \end{itemize}
@@ -82,8 +81,7 @@ Rozważano najpopularniejsze języki wspierające obiektowy paradygmat programow
 
 Celem zaprojektowanego systemu jest badanie skuteczności wybranych algorytmów \textbf{uczenia nadzorowanego} - rodziny metod należących do dziedziny \textbf{uczenia maszynowego}.
 Framework wspiera zarówno metody \textbf{klasyfikacji}, jak i \textbf{regresji}. Jakość analizowanych metod określana jest za pomocą wybranych przez użytkownika \textbf{miar}. W zależności od konfiguracji eksperymentu badania przeprowadzane są z wykorzystaniem klasycznej metody \textbf{holdout} lub \textbf{walidacji krzyżowej} o wybranych parametrach.
-
-Testy wykonywane są na sparametryzowanej przez użytkownika bazie danych, która może podlegać przeprowadzanej przez framework analizie, obejmującej na przykład wykrywanie jej niezbalansowania.
+Testy wykonywane są na sparametryzowanej przez użytkownika bazie danych.
 
 Aplikacja umożliwia porównanie algorytmów na drodze \textbf{statystycznej analizy wyników}.
 Wszystkie rezultaty eksperymentów reprezentowane są w graficznej postaci.
@@ -99,8 +97,7 @@ Poniżej przedstawiono definicje wyszczególnionych pojęć z poprzedniej sekcji
 	\textbf{Uczenie nadzorowane} -- zadanie \textbf{uczenia maszynowego}, w którym dane uczące zawierają wektory wejściowe algorytmu wraz z jego oczekiwanym wyjściem\cite{Bishop2006}. 
 	
 	\item 
-	\textbf{Uczenie maszynowe} -- dziedzina, której celem jest optymalizacja parametrów algorytmu na podstawie posiadanych danych. Ocena jakości algorytmów dokonywana jest z wykorzystaniem przyjętej funkcji strat.
-	\cite{Alpaydin2014}
+	\textbf{Uczenie maszynowe} -- dziedzina, której celem jest optymalizacja parametrów algorytmu na podstawie posiadanych danych. Ocena jakości algorytmów dokonywana jest z wykorzystaniem przyjętej funkcji strat\cite{Alpaydin2014}.
 	
 	\item
 	\textbf{Algorytm} -- ciąg kroków zdefiniowany dla danych wejściowych, które należy wykonać aby uzyskać zdefiniowane wyników działania. W zależności od rozwiązywanego zadania uczenia maszynowego (klasyfikacja, regresja bądź inne zadanie) wynik działania algorytmu może być różny, tak samo jak przebieg procesu uczenia, oraz dane na jakich algorytm operuje.
@@ -165,7 +162,7 @@ Przewiduje się następujące przypadki użycia:
 		\item funkcjonalności do analizy wyników:
 		\begin{itemize}
 			\item zapisywania wyników
-			\item generowania i zapisywania wyników
+			\item generowania i zapisywania wykresów
 			\item testowania hipotez i przeprowadzania testów post-hoc
 		\end{itemize}
 	\end{itemize}
@@ -173,7 +170,7 @@ Przewiduje się następujące przypadki użycia:
 
 \subsection{Nietypowe przypadki}
 
-Najczęstszym źródłem nietypowych sytuacji mogą być przypadki w których użytkownik nie poda właściwych danych, co może skutkować wystąpieniem wyjątków w modułach konfigurujących pracę systemu. Przykładowo użytkownik dla algorytmu klasyfikacji może podać metrykę przewidzianą dla regresji. Innym przypadkiem z tej kategorii może być podanie jako argumentu referencji do NullPointera. Są to problemy, które powinny być rozwiązywane przez moduły konfigurujące pracę systemu, przez komunikowanie użytkownika o błędnej konfiguracji.
+Najczęstszym źródłem nietypowych sytuacji mogą być przypadki, w których użytkownik nie poda właściwych danych, co może skutkować wystąpieniem wyjątków w modułach konfigurujących pracę systemu. Przykładowo użytkownik dla algorytmu klasyfikacji może podać metrykę przewidzianą dla regresji. Innym przypadkiem z tej kategorii może być podanie jako argumentu referencji do NullPointera. Są to problemy, które powinny być rozwiązywane przez moduły konfigurujące pracę systemu, przez komunikowanie użytkownika o błędnej konfiguracji.
  
 Wyjątkowa sytuacja, która nie może być wykryta na poziomie konfiguracji systemu to podanie zbioru uczącego zawierającego mniej próbek, niż jest to wymagane przez algorytmy walidacji krzyżowej. Przykładowo dla 10-krotnej walidacji musi zostać utworzone 10 podzbiorów datasetu co oznacza, że zbiór uczący musi posiadać co najmniej 10 próbek. Sprawdzanie tego typu scenariuszy musi odbywać się na poziomie klasy realizującej walidację krzyżową. Próba zabezpieczenia się przed takimi sytuacjami w innym miejscu powodowałaby mieszanie informacji o charakterze i odpowiedzialności poszczególnych komponentów i łamanie dobrych zasad projektowania.
 
