@@ -76,8 +76,6 @@ Dokładny opis wykorzystanych wzorców można znaleźć w \cite{gang-of-four}.
 
 Rozważano najpopularniejsze języki wspierające obiektowy paradygmat programowania tj. Java, C++, Python lub C\#. W dalszej części pracy zawarto szczegółową analizę dostępnych języków implementacji wraz z umotywowaniem podjętego wyboru. 
 
-TO DO: Dopisać wykorzystane narzędzia.
-
 
 \section{Wstępny opis słowny}
 % 2. Wstępny opis słowny dotyczy tego co system robi, a nie jak. Jest to wyjściowy model werbalny działania systemu, może być on wynikiem wywiadu z potencjalnymi użytkownikami. Zwracamy uwagę na ważne pojęcia, które pojawiły się w opisie, staramy się je ściślej zdefiniować i usystematyzować. Pojęcia te (głównie rzeczowniki) można przedstawić w formie słownika (glosariusza).
@@ -213,6 +211,27 @@ We frameworku wyszczególniono następujące komponenty:
 
 Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultCalculator i ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. Schemat komponentów został przedstawiony na rys. \ref{fig:modules_diagram}.
 
+
+\subsection{Projekt API frameworku}
+\label{ch:api}
+
+Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, niemniej jednak projekt API frameworku definiuje sposób, w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
+
+Przy konfiguracji systemu rozważano dwie możliwości realizacji. Konfiguracja elementów systemu może odbywać się przez wstrzykiwanie zależności, czyli przekazywanie implementacji interfesjów przez metody buildera. Alternatywą jest korzystanie z wartości typu wyliczeniowego do określenia typu obiektu jaki ma być wykorzystany lub wykorzystanie plików konfiguracyjnych przykładowo o formacie .json lub .xml. Pierwsze rozwiązanie ułatwia wprowadzanie własnych implementacji interfejsów, przez co biblioteka jest bardziej elastyczna i rozszerzalna. Ceną za to jest zwiększona trudność korzystania z biblioteki. Użytkownik najpierw musi dokładnie poznać jej budowę. Drugie rozwiązanie znacząco ułatwia korzystanie z biblioteki, ale z drugiej strony jest mniej elastyczne i pogarsza rozszerzalność. 
+
+W projekcie wybrano pierwszą opcję ze względu zwiększoną testowalność kodu i wspomnianą elastyczność. Cała biblioteka została zaprojektowana w sposób ułatwiający rozszerzanie funkcjonalności przez zastosowanie osobnych komponentów i interfejsów. Jest wskazane, aby użytkownik implementował własne rozwiązania dostosowane do własnych potrzeb. Wybranie drugiej metody ograniczyłoby najważniejszą zaletę biblioteki.
+
+Żeby skorzystać z frameworku użytkownik musi utworzyć instancję klasy TestPlatform, a następnie skonfigurwać klasę eksperyment z wykorzystaniem Buildera poprzez wstrzykiwanie zależności i skonfigurowanie modułu do analizy wyników. Komunikacja klienta z frameworkiem została zobrazowana na diagramie \ref{fig:sequenceUser}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{img/sequenceUser.png}
+	\caption{Diagram komunikacji użytkownika z frameworkiem.}
+	\label{fig:sequenceUser}
+\end{figure}
+
+
+
 \subsection{Komponent TestPlatform}
 
 TestPlatform jest odpowiedzialny za konfiguracje eksperymentu, stworzenie wszystkich niezbędnych obiektów i zapewnienie odpowiedniego przepływu danych. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy. 
@@ -312,25 +331,6 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach TODO i \ref{fig
 \end{figure}
 
 
-\subsection{Projekt API frameworku}
-\label{ch:api}
-
-Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, niemniej jednak projekt API frameworku definiuje sposób, w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
-
-Przy konfiguracji systemu rozważano dwie możliwości realizacji. Konfiguracja elementów systemu może odbywać się przez wstrzykiwanie zależności, czyli przekazywanie implementacji interfesjów przez metody buildera. Alternatywą jest korzystanie z wartości typu wyliczeniowego do określenia typu obiektu jaki ma być wykorzystany lub wykorzystanie plików konfiguracyjnych przykładowo o formacie .json lub .xml. Pierwsze rozwiązanie ułatwia wprowadzanie własnych implementacji interfejsów, przez co biblioteka jest bardziej elastyczna i rozszerzalna. Ceną za to jest zwiększona trudność korzystania z biblioteki. Użytkownik najpierw musi dokładnie poznać jej budowę. Drugie rozwiązanie znacząco ułatwia korzystanie z biblioteki, ale z drugiej strony jest mniej elastyczne i pogarsza rozszerzalność. 
-
-W projekcie wybrano pierwszą opcję ze względu zwiększoną testowalność kodu i wspomnianą elastyczność. Cała biblioteka została zaprojektowana w sposób ułatwiający rozszerzanie funkcjonalności przez zastosowanie osobnych komponentów i interfejsów. Jest wskazane, aby użytkownik implementował własne rozwiązania dostosowane do własnych potrzeb. Wybranie drugiej metody ograniczyłoby najważniejszą zaletę biblioteki.
-
-Żeby skorzystać z frameworku użytkownik musi utworzyć instancję klasy TestPlatform, a następnie skonfigurwać klasę eksperyment z wykorzystaniem Buildera poprzez wstrzykiwanie zależności i skonfigurowanie modułu do analizy wyników. Komunikacja klienta z frameworkiem została zobrazowana na diagramie \ref{fig:sequenceUser}.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{img/sequenceUser.png}
-	\caption{Diagram komunikacji użytkownika z frameworkiem.}
-	\label{fig:sequenceUser}
-\end{figure}
-
-
 
 \section{Kwestie implementacyjne}
 %6. Kwestie implementacyjne Na tym etapie zastanawiamy nad wyborem języków implementacji, środowisk i narzędzi.
@@ -354,11 +354,9 @@ Java to język w pełni obiektowy, kompilowany do kodu bajtowego. Pełna obiekto
 C\# jest podobnie jak Java językiem czysto obiektowym kompilowanym w pierwszym etapie do kodu pośredniego (IL - intermediate language), a następnie do kodu maszynowego za pomocą kompilatora JIT. C\# jest oparty na frameworku .NET.
 
 \subsection{Wybór środowisk i narzędzi}
-Jako środowisko realizacji projektu wybrano Javę. Motywacją decyzji była przede wszystkim pełna obiektowość tego języka, co pozwala na dogodną implementację zaprojektowanej architektury.
-Inne języki obiektowe takie jak C\# i Smalltalk odrzucono ze względu na ich mniejszą znajomość w zespole.
+Do realizacji projektu wybrano język Java, czego motywacją była przede wszystkim jego pełna obiektowość, która pozwala na dogodną implementację zaprojektowanej architektury.
+Inne języki obiektowe takie jak C\# i Smalltalk odrzucono ze względu mniejsze doświadczenie w użytkowaniu ich w zespole.
 Zaletą wybranego środowiska jest także mnogość dostępnych narzędzi oraz duża społeczność, co może mieć wpływ na przyspieszenie realizacji projektu.
-
-TODO: IDE, UT framework, lintery, sanitizery?
 
 
 \section{Podsumowanie i dyskusja krytyczna}
