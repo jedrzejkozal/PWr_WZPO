@@ -7,13 +7,12 @@ public class RegressionAdapter implements IAlgorithmAdapter {
 	private RegressionImpl regressionImpl;
 
 	public void fit(DataDivision division){
-		// TODO - implement Algorithm.RegressionAdapter.fit
-		throw new UnsupportedOperationException();
+		System.out.println("RegressionAdapter.fit");
 	}
 
 	public SingleFoldAlgResult predict(DataDivision division){
-		// TODO - implement Algorithm.RegressionAdapter.predict
-		throw new UnsupportedOperationException();
+		System.out.println("RegressionAdapter.predict");
+		return new SingleFoldAlgResult();
 	}
 
 }
