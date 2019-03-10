@@ -1,9 +1,10 @@
 package Platform;
+import Dataset.IDatasetHolder;
+import Validation.IValidationStrategy;
 import Algorithm.IAlgorithmAdapterHolder;
 import Algorithm.IAlgorithmRunner;
-import Dataset.IDatasetHolder;
 import ResultsCalculator.IResultsCalculator;
-import Validation.IValidationStrategy;
+import ResultsCalculator.IMetricHolder;
 
 public class ExperimentBuilder {
 
@@ -28,6 +29,9 @@ public class ExperimentBuilder {
 		}
 		else if(elem instanceof IResultsCalculator) {
 			this.experiment.setResultsCalculator((IResultsCalculator) elem);
+		}
+		else if(elem instanceof IMetricHolder) {
+			this.experiment.setMetricHolder((IMetricHolder) elem);
 		}
 	}
 

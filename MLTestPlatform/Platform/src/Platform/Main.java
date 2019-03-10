@@ -22,6 +22,7 @@ public class Main {
         experimentBuilder.add(new ResultsCalculator());
         experimentBuilder.add(new AlgorithmAdapterHolder());
         experimentBuilder.add(new AlgorithmRunner());
+        experimentBuilder.add(new MetricHolder());
 
         tp.run();
 

@@ -18,6 +18,7 @@ public class Experiment {
 	private IAlgorithmAdapterHolder algorithmAdapterHolder;
 	private IAlgorithmRunner algorithmRunner;
 	private IResultsCalculator resultsCalculator;
+	private IMetricHolder metricHolder;
 
 	public void setDatasetHolder(IDatasetHolder datasetHolder) {
 		System.out.println("Experiment.setDatasetHolder");
@@ -44,6 +45,11 @@ public class Experiment {
 		this.resultsCalculator = resultsCalculator;
 	}
 
+	public void setMetricHolder(IMetricHolder elem) {
+		System.out.println("Experiment.runExperiment : starting the experiment execution");
+		this.metricHolder = elem;
+	}
+
 	public ExperimentResults runExperiment() {
 		System.out.println("Experiment.runExperiment : starting the experiment execution");
 
@@ -53,5 +59,4 @@ public class Experiment {
 
 		return expResults;
 	}
-
 }
