@@ -55,7 +55,7 @@ public class Experiment {
 
 		DataSplit dataSplit = this.validationStrategy.getDataSplit(this.datasetHolder);
 		AlgorithmsResults algResults = this.algorithmRunner.runAlgorithms(this.algorithmAdapterHolder, dataSplit);
-		ExperimentResults expResults = this.resultsCalculator.calculateResults(algResults, new MetricHolder()); //TODO: send field of type IMetricCalculator
+		ExperimentResults expResults = this.resultsCalculator.calculateResults(algResults, this.metricHolder);
 
 		return expResults;
 	}

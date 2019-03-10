@@ -1,11 +1,11 @@
 package ResultsCalculator;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface IMetricHolder {
 
 	void addMetricCalculator(IMetricCalculator metricCalculator);
 
-	List<IMetricCalculator> getMetricCalculators();
+	ArrayList<IMetricCalculator> getMetricCalculators();
 
 }

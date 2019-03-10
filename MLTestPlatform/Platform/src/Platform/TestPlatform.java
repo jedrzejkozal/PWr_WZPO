@@ -16,10 +16,12 @@ public class TestPlatform {
 	}
 
 	public ExperimentBuilder getExperimentBuilder() {
+		System.out.println("ExperimentBuilder.getExperimentBuilder");
 		return this.experimentBuilder;
 	}
 
 	public void setResultAnalyser(IResultAnalyser resultAnalyser) {
+		System.out.println("ExperimentBuilder.setResultAnalyser");
 		this.resultAnalyser = resultAnalyser;
 	}
 
