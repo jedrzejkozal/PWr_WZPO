@@ -55,7 +55,7 @@
 
 \subsection{Założenia projektu}
 
-Platforma testowa dla algorytmów uczenia maszynowego jest frameworkiem mającym umożliwiać przeprowadzanie eksperymentów w elastyczny i prosty sposób. W założeniu framework ma pozwalać na skonfigurowanie eksperymentu oraz zebranie wszystkich wyników potrzebnych do określenie skuteczności algorytmu, wygenerowania dokumentacji i zapisu przebiegu. Konstrukcja frameworka ma pozwalać na łatwą integrację w środowisku Continuous Integration.
+Platforma testowa dla algorytmów uczenia maszynowego jest frameworkiem mającym umożliwiać przeprowadzanie eksperymentów w elastyczny i prosty sposób. W założeniu framework ma pozwalać na skonfigurowanie eksperymentu oraz zebranie wszystkich wyników potrzebnych do określenie skuteczności algorytmu, wygenerowania dokumentacji i zapisu przebiegu. Konstrukcja frameworku ma pozwalać na łatwą integrację w środowisku Continuous Integration.
 
 W trakcie projektowania systemu uwzględniono wysokopoziomowy opis całej aplikacji z podziałem na komponenty oraz niskopoziomowy opis z wyszczególnieniem klas i ich odpowiedzialności.
 
@@ -103,7 +103,7 @@ Poniżej przedstawiono definicje wyszczególnionych pojęć z poprzedniej sekcji
 	\textbf{Algorytm} -- ciąg kroków zdefiniowany dla danych wejściowych, które należy wykonać aby uzyskać zdefiniowane wyników działania. W zależności od rozwiązywanego zadania uczenia maszynowego (klasyfikacja, regresja bądź inne zadanie) wynik działania algorytmu może być różny, tak samo jak przebieg procesu uczenia, oraz dane na jakich algorytm operuje.
 	
 	\item 
-	\textbf{Zadanie klasyfikacji} -- przypisanie wejściowego wektora do jednego z elementów skończonego zbioru kategorii\cite{Bishop2006}. 
+	\textbf{Zadanie klasyfikacji} -- przypisanie wejściowego wektora do jednego z~elementów skończonego zbioru kategorii\cite{Bishop2006}. 
 	
 	\item 
 	\textbf{Zadanie regresji} -- zadanie uczenia maszynowego, w którym oczekiwanym wyjściem algorytmu dla danego wektora wejściowego jest wartość ciągła\cite{Bishop2006}.
@@ -128,7 +128,7 @@ Poniżej przedstawiono definicje wyszczególnionych pojęć z poprzedniej sekcji
 \section{Analiza wymagań użytkownika}
 %4. Analiza wymagań użytkownika, w której można zastosować poznane w ramach przedmiotu ”inżynieria oprogramowania” przypadki użycia (ang. use case). Ważne jest zrozumienie jak system jest widziany z punktu widzenia użytkownika. Można przedstawić w tym punkcie główny scenariusz działania oraz najciekawsze scenariusze poboczne (czyli tzw. nietypowe sytuacje).
 
-Projekt ma charakter frameworku, którego głównymi użytkownikami będą inni programiści. Z tego powodu projekt aplikacji powinien być prosty i intuicyjny w wykorzystaniu. W przypadku realizowanego tematu może być to trudne do osiągnięcia ze względu na złożoność omawianych zagadnień. W tej sekcji pracy przedstawiono analizę przypadków użycia frameworku, które stanowią podstawę projektu API dostępnego dla użykownika.
+Projekt ma charakter frameworku, którego głównymi użytkownikami będą inni programiści. Z tego powodu projekt aplikacji powinien być prosty i intuicyjny w wykorzystaniu. W przypadku realizowanego tematu może być to trudne do osiągnięcia ze względu na złożoność omawianych zagadnień. W~tej sekcji pracy przedstawiono analizę przypadków użycia frameworku, które stanowią podstawę projektu API dostępnego dla użytkownika.
 
 \subsection{Podstawowe przypadki użycia}
 
@@ -206,7 +206,7 @@ We frameworku wyszczególniono następujące komponenty:
 	\label{fig:modules_diagram}
 \end{figure}
 
-Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultCalculator i ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. Schemat komponentów został przedstawiony na rys. \ref{fig:modules_diagram}.
+Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \cite{clean-arch}. Komponenty Dataset, Validation, Algorithm, ResultCalculator i ResultAnalyser są wtyczkami do TestPlatform. Pozwala to na uniezależnienie komponentów od siebie. Wprowadzanie zmian w logice jednego z~komponentów nie będzie powodowało konieczności zmiany zachowania bądź rekompilacji innego komponentu. Dodatkową zaletą może być osobny deployment, niezależnie od przyjętego modelu wdrożenia. Framework będzie wdrażany jako monolityczna aplikacja, ale architektura aplikacji pozwala na łatwe rozdzielenie komponentów na osobne usługi, które mogą być uruchamiane na osobnych maszynach w celu zrównoleglenia obliczeń. Jest to szczególnie ważna cecha istotna w przypadku algorytmów wymagających dużych nakładów mocy obliczeniowej, gdzie równoległe przeprowadzanie obliczeń jest bardzo istotne. Schemat komponentów został przedstawiony na rys. \ref{fig:modules_diagram}.
 
 
 \subsection{Projekt API frameworku}
@@ -214,11 +214,11 @@ Komponenty są zorganizowane w architekturę wtyczek, omówioną dokładniej w \
 
 Projektując framework można skorzystać z dwóch podejść: down-up i top-down. Pierwsze podejście polega na skupieniu się najpierw na zagadnieniach domenowych a następnie budowaniu abstrakcji, które zostają udostępnione użytkownikowi. Drugie podejście polega na zaprojektowaniu interfejsu dla użytkownika w pierwszej kolejności, przechodząc do projektowania i implementacji właściwych mechanizmów w późniejszej kolejności. W projekcie wykorzystano podejście down-up. Oba podejścia mają swoje wady i zalety, niemniej jednak projekt API frameworku definiuje sposób, w jaki ostateczny użytkownik będzie korzystał z naszego kodu. Pomimo przyjętej metodyki projektowania jest to bardzo ważne zagadnienie, które nie może zostać zaniedbane. 
 
-Przy konfiguracji systemu rozważano dwie możliwości realizacji. Konfiguracja elementów systemu może odbywać się przez wstrzykiwanie zależności, czyli przekazywanie implementacji interfesjów przez metody buildera. Alternatywą jest korzystanie z wartości typu wyliczeniowego do określenia typu obiektu jaki ma być wykorzystany lub wykorzystanie plików konfiguracyjnych przykładowo o formacie .json lub .xml. Pierwsze rozwiązanie ułatwia wprowadzanie własnych implementacji interfejsów, przez co biblioteka jest bardziej elastyczna i rozszerzalna. Ceną za to jest zwiększona trudność korzystania z biblioteki. Użytkownik najpierw musi dokładnie poznać jej budowę. Drugie rozwiązanie znacząco ułatwia korzystanie z biblioteki, ale z drugiej strony jest mniej elastyczne i pogarsza rozszerzalność. 
+Przy konfiguracji systemu rozważano dwie możliwości realizacji. Konfiguracja elementów systemu może odbywać się przez wstrzykiwanie zależności, czyli przekazywanie implementacji interfesjów przez metody buildera. Alternatywą jest korzystanie z wartości typu wyliczeniowego do określenia typu obiektu jaki ma być wykorzystany lub wykorzystanie plików konfiguracyjnych przykładowo o formacie .json lub .xml. Pierwsze rozwiązanie ułatwia wprowadzanie własnych implementacji interfejsów, przez co biblioteka jest bardziej elastyczna i rozszerzalna. Ceną za to jest zwiększona trudność korzystania z~biblioteki. Użytkownik najpierw musi dokładnie poznać jej budowę. Drugie rozwiązanie znacząco ułatwia korzystanie z biblioteki, ale z drugiej strony jest mniej elastyczne i pogarsza rozszerzalność. 
 
-W projekcie wybrano pierwszą opcję ze względu zwiększoną testowalność kodu i wspomnianą elastyczność. Cała biblioteka została zaprojektowana w sposób ułatwiający rozszerzanie funkcjonalności przez zastosowanie osobnych komponentów i interfejsów. Jest wskazane, aby użytkownik implementował własne rozwiązania dostosowane do własnych potrzeb. Wybranie drugiej metody ograniczyłoby najważniejszą zaletę biblioteki.
+W projekcie wybrano pierwszą opcję ze względu zwiększoną testowalność kodu i wspomnianą elastyczność. Cała biblioteka została zaprojektowana w~sposób ułatwiający rozszerzanie funkcjonalności przez zastosowanie osobnych komponentów i interfejsów. Jest wskazane, aby użytkownik implementował własne rozwiązania dostosowane do własnych potrzeb. Wybranie drugiej metody ograniczyłoby najważniejszą zaletę biblioteki.
 
-Żeby skorzystać z frameworku użytkownik musi utworzyć instancję klasy TestPlatform, a następnie skonfigurwać klasę eksperyment z wykorzystaniem Buildera poprzez wstrzykiwanie zależności i skonfigurowanie modułu do analizy wyników. Komunikacja klienta z frameworkiem została zobrazowana na diagramie \ref{fig:sequenceUser}.
+W celu skorzystania z frameworku użytkownik musi utworzyć instancję klasy TestPlatform, a następnie skonfigurować klasę eksperyment z wykorzystaniem Buildera poprzez wstrzykiwanie zależności i skonfigurowanie modułu do analizy wyników. Komunikacja klienta z frameworkiem została zobrazowana na diagramie \ref{fig:sequenceUser}.
 
 \begin{figure}
 	\centering
@@ -231,28 +231,30 @@ W projekcie wybrano pierwszą opcję ze względu zwiększoną testowalność kod
 
 \subsection{Komponent TestPlatform}
 
-TestPlatform jest odpowiedzialny za konfiguracje eksperymentu, stworzenie wszystkich niezbędnych obiektów i zapewnienie odpowiedniego przepływu danych. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy. 
+TestPlatform jest odpowiedzialny za konfigurację eksperymentu, stworzenie wszystkich niezbędnych obiektów i zapewnienie odpowiedniego przepływu danych. Jest to główny komponent, będący punktem wejścia dla użytkownika. Główna logika aplikacji została zawarta w tym komponencie. Pozostałe komponenty zostały oddzielone przez interfejsy. 
 
-Komponent udostępnia użytkownikowi obiekt klasy ExperimentBuilder, który umożliwia skonfigurowanie badań. Zastosowano tutaj wzorzec kreacyjny, aby oddzielić logikę tworzenia klasy Experiment od jej logiki jej działania. Alternatywnym rozwiązaniem byłoby zastosowanie wzorca AbstractFactory, który również jest wzorcem kreacyjnym. Wykorzystanie AbstractFactory jest wskazane w sytuacji w którym istnieje wiele typów produkowanych obiektów, dziedziczących po wspólnym interfejsie. Sytuacja taka nie ma tutaj miejsca, więc wybrano wzorzec Builder. Przy implementacji klasy ExperimentBuilder zostały wykorzystane typy generyczne w celu uproszczenia interfejsu. Typy te są następnie rozróżniane z wykorzystaniem mechanizmów refleksji.
+Komponent udostępnia użytkownikowi obiekt klasy ExperimentBuilder, który umożliwia skonfigurowanie badań. Zastosowano tutaj wzorzec kreacyjny, aby oddzielić logikę tworzenia klasy Experiment od jej logiki jej działania. Alternatywnym rozwiązaniem byłoby zastosowanie wzorca AbstractFactory, który również jest wzorcem kreacyjnym. Wykorzystanie AbstractFactory jest wskazane w sytuacji, w której istnieje wiele typów produkowanych obiektów, dziedziczących po wspólnym interfejsie. Sytuacja taka nie ma tutaj miejsca, więc wybrano wzorzec Builder. Przy implementacji klasy ExperimentBuilder zostały wykorzystane typy generyczne w celu uproszczenia interfejsu. Typy te są następnie rozróżniane z wykorzystaniem mechanizmów refleksji.
 
-Klasa Experiment ma za zadanie przechowywać konfigurację całego projektu i wywoływać kolejno wszystkie komponenty w celu przeprowadzenia koniecznych obliczeń. Jest to klasa będąca realizacją wzorca mediator, ponieważ umożliwia komunikację między wieloma komponentami i klasami. Można zarzucić, że klasa ta posiada podwójną odpowiedzialność - implementuję logikę eksperymentu i odpowiada za komunikację między komponentami. Rozdzielenie tych odpowiedzialności owocowałoby powstaniem bardzo abstrakcyjnej klasy odpowiedzialnej za logikę i kolejność wykonywania operacji, która byłaby zależna od interfejsu publicznego mediatora. Mediator z kolei byłby uzależniony od interfejsów wybranych komponentów. Byłyby to klasy o bardzo wysokim powiązaniu (ang. coupling). Zaletą takiego rozwiązania byłoby uniezależnienie logiki od tego w jaki sposób są skonfigurowane komponenty, jakie są ich odpowiedzialności i ile ich występuje. Ułatwiłoby to także podział komponentów i dodawanie nowych. Jednakże dodawanie nowych komponentów byłoby związane ze zmianami w logice, więc konieczne byłoby zmiany zarówno w mediatorze jak i klasie przechowującej logikę. Biorąc pod uwagę wszystkie argumenty wybrano użycie jednej klasy, w celu zachowania prostoty.
+Klasa Experiment ma za zadanie przechowywać konfigurację całego projektu i wywoływać kolejno wszystkie komponenty w celu przeprowadzenia koniecznych obliczeń. Jest to klasa będąca realizacją wzorca mediator, ponieważ umożliwia komunikację między wieloma komponentami i klasami. Można zarzucić, że klasa ta posiada podwójną odpowiedzialność - implementuje logikę eksperymentu i odpowiada za komunikację między komponentami. Rozdzielenie tych odpowiedzialności owocowałoby powstaniem bardzo abstrakcyjnej klasy odpowiedzialnej za logikę i kolejność wykonywania operacji, która byłaby zależna od interfejsu publicznego mediatora. Mediator z kolei byłby uzależniony od interfejsów wybranych komponentów. Byłyby to klasy o bardzo wysokim powiązaniu (ang. coupling). Zaletą takiego rozwiązania byłoby uniezależnienie logiki od tego w jaki sposób są skonfigurowane komponenty, jakie są ich odpowiedzialności i ile ich występuje. Ułatwiłoby to także podział komponentów i dodawanie nowych. Jednakże dodawanie nowych komponentów byłoby związane ze zmianami w logice, więc konieczne byłoby zmiany zarówno w mediatorze jak i klasie przechowującej logikę. Biorąc pod uwagę wszystkie argumenty wybrano użycie jednej klasy, w celu zachowania prostoty.
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classTestPlatform} i \ref{fig:sequenceTestPlatform}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classTestPlatform} i~\ref{fig:sequenceTestPlatform}.
 
 \newpage
 \begin{figure}[!h]
 \centering
-	\includegraphics[width=0.9\textwidth]{img/sequenceTestPlatform.png}
-	\caption{Diagram przepływu w komponecie TestPlatform.}
-	\label{fig:sequenceTestPlatform}
+	\includegraphics[width=0.9\textwidth]{img/class_diagrams/test_platform.png}
+	\caption{Diagram klas w komponencie TestPlatform.}
+	\label{fig:classTestPlatform}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-	\includegraphics[width=0.9\textwidth]{img/class_diagrams/test_platform.png}
-	\caption{Diagram klas w komponecie TestPlatform.}
-	\label{fig:classTestPlatform}
+	\includegraphics[width=0.9\textwidth]{img/sequenceTestPlatform.png}
+	\caption{Diagram przepływu w komponencie TestPlatform.}
+	\label{fig:sequenceTestPlatform}
 \end{figure}
+
+
 \newpage
 
 \subsection{Komponent Dataset}
@@ -283,11 +285,11 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classD
 
 \subsection{Komponent Validation}
 
-Odpowiedzialnością komponentu jest podział datasetów na zbiory uczące i testowe o odpowiedniej liczności według przyjętej strategii.
+Odpowiedzialnością komponentu jest podział datasetów na zbiory uczące i~testowe o odpowiedniej liczności według przyjętej strategii.
 
-Komponent składa się głównie interfejsu IValidationStrategy i jego implementacji. Każda z implementacji realizuje inny sposób podziału zbiorów na zbiory uczące i testowe. Wartością zwracaną dla tych operacji jest struktura ValidationResults. Struktura ta zawiera podział na foldy treningowe i testowe dla wszystkich datasetów wykorzystywanych w eksperymencie. 
+Komponent składa się głównie interfejsu IValidationStrategy i jego implementacji. Każda z implementacji realizuje inny sposób podziału zbiorów na zbiory uczące i testowe. Wartością zwracaną dla tych operacji jest struktura ValidationResults. Struktura ta zawiera podział na foldy treningowe i~testowe dla wszystkich datasetów wykorzystywanych w eksperymencie. 
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:Validation} i \ref{fig:sequenceValidation}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:Validation} i~\ref{fig:sequenceValidation}.
 
 \begin{figure}[!h]
 	\centering
@@ -308,21 +310,21 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:Valida
 
 Komponent jest abstrakcją nałożoną na pojedynczy algorytm uczenia maszynowego, bądź zbiór algorytmów. Komponent wykorzystuje split datasetu zwrócony przez validation do obliczania wyników działania stosowanych algorytmów. 
  
-Klasa AlgorithmAdapterHolder odpowiada za przechowywanie kolekcji algorytmów. Klasa AlgoritmAdapter pozwala uniezależnić implementację algorytmu w wybranych frameworkach uczenia maszynowego od omawianej platformy do testów. Przykładowo użytkownik może sam napisać własną implementację wybranego algorytmu lub skorzystać z mocno zoptymalizowanych implementacji algorytmów dostępnych w różnych bibliotekach takich jak Tensorflow. AlgorithmAdapter pozwalana na przeprowadzonie procesów uczenia i ewaluacji algorytmów na wybranym zbiorze. Wynikiem ewaluacji jest Struktura SingleFoldAlgResult. Klasa AlgorithmRunner wykorzystuje IAlgoritmHoler do wyznaczenia wyników działania algorytmów na wybranych foldach, czego wynikiem jest zwrócenie struktury AlgorithmResults.
+Klasa AlgorithmAdapterHolder odpowiada za przechowywanie kolekcji algorytmów. Klasa AlgoritmAdapter pozwala uniezależnić implementację algorytmu w wybranych frameworkach uczenia maszynowego od omawianej platformy do testów. Przykładowo użytkownik może sam napisać własną implementację wybranego algorytmu lub skorzystać z mocno zoptymalizowanych implementacji algorytmów dostępnych w różnych bibliotekach takich jak Tensorflow. AlgorithmAdapter pozwalana na przeprowadzenie procesów uczenia i ewaluacji algorytmów na wybranym zbiorze. Wynikiem ewaluacji jest Struktura SingleFoldAlgResult. Klasa AlgorithmRunner wykorzystuje IAlgoritmHoler do wyznaczenia wyników działania algorytmów na wybranych foldach, czego wynikiem jest zwrócenie struktury AlgorithmResults.
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classAlgorithm} i \ref{fig:sequenceAlgorithm}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classAlgorithm} i~\ref{fig:sequenceAlgorithm}.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/sequenceAlgorithm.png}
-	\caption{Diagram przepływu w komponecie Algorithm.}
+	\caption{Diagram przepływu w komponencie Algorithm.}
 	\label{fig:sequenceAlgorithm}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 	\includegraphics[width=1.0\textwidth]{img/class_diagrams/algorithm.png}
-	\caption{Diagram klas w komponecie Algorithm.}
+	\caption{Diagram klas w komponencie Algorithm.}
 	\label{fig:classAlgorithm}
 \end{figure}
 \newpage
@@ -331,22 +333,22 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classA
 
 Komponent ten jest odpowiedzialny za obliczanie wartości wybranych metryk dla wyników działania algorytmów.
 
-Klasa MetricHolder pozwala na przechowywanie kolekcji metryk stosowanych w eksperymencie. Interfejs IMetricCalculator definuję abstrakcyjną operację obliczania metryki na podstawie wyników działania algorytmów. Zastosowanie interfejsu pozwala na łatwe definiowanie przez użytkownika nowych metryk na własne potrzeby. MetricCalculator zwraca strukturę MetricResults. Klasa ResultsCalculator korzysta z MetricHolder do zaplikowania wszystkich metryk do wszystkich wyników algorytmów. Klasa ta zwraca strukturę ExperimentResults.
+Klasa MetricHolder pozwala na przechowywanie kolekcji metryk stosowanych w eksperymencie. Interfejs IMetricCalculator definuje abstrakcyjną operację obliczania metryki na podstawie wyników działania algorytmów. Zastosowanie interfejsu pozwala na łatwe definiowanie przez użytkownika nowych metryk na własne potrzeby. MetricCalculator zwraca strukturę MetricResults. Klasa ResultsCalculator korzysta z MetricHolder do zaaplikowania wszystkich metryk do wszystkich wyników algorytmów. Klasa ta zwraca strukturę ExperimentResults.
 
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classResultsCalculator} i \ref{fig:sequenceResultsCalculator}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classResultsCalculator} i~\ref{fig:sequenceResultsCalculator}.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/sequenceResultsCalculator.png}
-	\caption{Diagram przepływu w komponecie ResultsCalculator.}
+	\caption{Diagram przepływu w komponencie ResultsCalculator.}
 	\label{fig:sequenceResultsCalculator}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 	\includegraphics[width=0.9\textwidth]{img/class_diagrams/results_calc.png}
-	\caption{Diagram klas w komponecie ResultsCalculator.}
+	\caption{Diagram klas w komponencie ResultsCalculator.}
 	\label{fig:classResultsCalculator}
 \end{figure}
 
@@ -354,22 +356,22 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classR
 
 ResultAnalyser ma zapisywać rezultaty eksperymentu, generować i zapisywać wykresy oraz przeprowadzać testy statystyczne na podstawie uzyskanych wyników. W trakcie tworzenia komponentu przez interfejs przekazywane są nazwy folderów w których mają być zapisywane wykresy lub wyniki. 
 
-W trakcie przeprowadzania analizy wyników działania do komponentu przekazywane są wyniki eksperymentów. Następnie kolejno przeprowadzane są testy post-hoc (klasa PostHocTester), zapisywane są wyniki (klasa ResultSaver), generowane i zapisywane są wykresy (klasa PlotGenerator wytwarza strukturę Plots, które jest następnie przekazywana do klasy PlotSaver). W komponencie zastosowano interfejs do uogólnienia operacji przeprowadzania testów post-hoc. Pozwala to na zaimplementowanie własnych testów PostHoc. Klasa PostHocTester wytwarza strukturę PostHocResults.
+W trakcie przeprowadzania analizy wyników działania do komponentu przekazywane są wyniki eksperymentów. Następnie kolejno przeprowadzane są testy post-hoc (klasa PostHocTester), zapisywane są wyniki (klasa ResultSaver), generowane i zapisywane są wykresy (klasa PlotGenerator wytwarza strukturę Plots, które jest następnie przekazywana do klasy PlotSaver). W~komponencie zastosowano interfejs do uogólnienia operacji przeprowadzania testów post-hoc. Pozwala to na zaimplementowanie własnych testów PostHoc. Klasa PostHocTester wytwarza strukturę PostHocResults.
 
 
-Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classResultAnalyser} i \ref{fig:sequenceResultAnalyser}.
+Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classResultAnalyser} i~\ref{fig:sequenceResultAnalyser}.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{img/sequenceResultAnalyser.png}
-	\caption{Diagram przepływu w komponecie ResultAnalyser.}
+	\caption{Diagram przepływu w komponencie ResultAnalyser.}
 	\label{fig:sequenceResultAnalyser}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
 	\includegraphics[width=1.2\textwidth]{img/class_diagrams/result_analyser.png}
-	\caption{Diagram klas w komponecie ResultAnalyser.}
+	\caption{Diagram klas w komponencie ResultAnalyser.}
 	\label{fig:classResultAnalyser}
 \end{figure}
 \newpage
@@ -378,23 +380,23 @@ Diagramy UML klas i sekwencji przedstawiono kolejno na rysunkach \ref{fig:classR
 \section{Kwestie implementacyjne}
 %6. Kwestie implementacyjne Na tym etapie zastanawiamy nad wyborem języków implementacji, środowisk i narzędzi.
 
-Obecnie istnieje wiele popularnych obiektowych języków programowania. W niniejszej sekcji pracy przeprowadzono dyskusję możliwych języków implementacji.
+Obecnie istnieje wiele popularnych obiektowych języków programowania. W~niniejszej sekcji pracy przeprowadzono dyskusję możliwych języków implementacji.
 
 \subsection{Wybór języka implementacji}
 
 Język implementacji ma bardzo duży wpływ na ostateczny kształt projektu. Poniżej przedstawiono szczegółową analizę możliwych języków implementacji, wraz z omówieniem zalet i wad wykorzystania wybranych języków do realizacji projektu.
 
 \paragraph{Python}
-Python jest językiem typowanym dynamicznie, kompilowanym do kodu bajtowego maszyny wirtualnej. Zyskał dużą popularność przez prostotę składni, przystępność oraz dużą liczbę dostępnych bibliotek. W kontekście realizowanego projektu Python może być wskazanym językiem ze względu na dużą dostępność narzędzi i bibliotek przeznaczonych do uczenia maszynowego. W teorii Python wspiera obiektowość, jednakże pewne mechanizmy związane z dynamicznym typowaniem uniemożliwiają pełne wykorzystanie zasad paradygmatu obiektowego. Przykładowo Python udostępnia możliwość tworzenia interfejsów z wykorzystaniem AbstractBaseClass (ABC). W ABC można zdefiniować metody interfejsu, które muszą być zaimplementowane w klasach dziedziczących po ABC. Brak implementacji skutkuje pojawieniem się wyjątku. Trudno jest zaimplementować zachowania polimorficzne, ze względu na ducktyping. Dodatkowo mechanizm enkapsulacji w tym języku nie istnieje. Jest on symulowany przez name mangling - mechanizm zamiany przez interpreter nazw metod z podwójnym podkreślinikiem na początku nazwy. Istnieją pewne zaawansowane mechanizmy takie jak metaklasy pozwalające na stosowanie refleksji oraz elementy paradygmatu funkcyjnego, które mają wpływ na sposób implementacji w Pythonie, jednakże są mało istotne w kontekście omawianego projektu.
+Python jest językiem typowanym dynamicznie, kompilowanym do kodu bajtowego maszyny wirtualnej. Zyskał dużą popularność przez prostotę składni, przystępność oraz dużą liczbę dostępnych bibliotek. W kontekście realizowanego projektu Python może być wskazanym językiem ze względu na dużą dostępność narzędzi i bibliotek przeznaczonych do uczenia maszynowego. W teorii Python wspiera obiektowość, jednakże pewne mechanizmy związane z dynamicznym typowaniem uniemożliwiają pełne wykorzystanie zasad paradygmatu obiektowego. Przykładowo Python udostępnia możliwość tworzenia interfejsów z wykorzystaniem AbstractBaseClass (ABC). W ABC można zdefiniować metody interfejsu, które muszą być zaimplementowane w klasach dziedziczących po ABC. Brak implementacji skutkuje pojawieniem się wyjątku. Trudno jest zaimplementować zachowania polimorficzne, ze względu na ducktyping. Dodatkowo mechanizm enkapsulacji w tym języku nie istnieje. Jest on symulowany przez name mangling - mechanizm zamiany przez interpreter nazw metod z podwójnym podkreślnikiem na początku nazwy. Istnieją pewne zaawansowane mechanizmy takie jak metaklasy pozwalające na stosowanie refleksji oraz elementy paradygmatu funkcyjnego, które mają wpływ na sposób implementacji w Pythonie, jednakże są mało istotne w kontekście omawianego projektu.
 
 \paragraph{C++}
-C++ jest językiem ogólnego przeznaczenia wspierającym wiele paradygmatów. Jego główną zaletą jest szybkość kodu, wynikająca głównie z kompilacji do kodu maszynowego. C++ jest silnie typowany, przez co wiele błędów można wykryć na etapie kompilacji kodu. Niewątpliwą zaletą tego języka jest rozbudowany system szablonów, który pozwala na wykorzystanie zaawansowanych technik metaprogramowania. W \cite{Cpp_turing_complete} wykazano, że szablony C++ są kompletne w sensie Turinga. Oznacza to, że można w nich zaimplementować dowolny algorytm z klasy obliczeniowej rozwiązywalnej na maszynie Turinga. Ciekawym projektem jest \cite{Cpp_snake_compile_time}, gdzie zaimplementowano popularną grę Snake z wykorzystaniem szablonów. Polecenia ruchu są zadawane w czasie kompilacji i jednocześnie w trakcie kompilacji są dokonywane wszystkie obliczenia. Restrykcyjność języka może być powodem wolniejszego tempa implementacji w C++. Dodatkowo operacje na zasobach są jedną z najbardziej niebezpiecznych aspektów tego języka. C++ nie posiada garbage collectora, przez co na programiście ciąży obowiązek zwalniania zaalokowanych zasobów. Istnieją w C++ mechanizmy umożliwiające bezpieczne zarządzanie zasobami, jednakże ich stosowanie wymaga dużego nakładu dyscypliny (przykładowo według Scotta Mayersa najważniejszym wynalazkiem języka jest destruktor, który umożliwił pojawienie się idiomu RAII). Pojawienie się nowszych standardów znacząco poprawiło wygodę programistów i bezpieczeństwo operowania na zasobach, przez np. dodanie inteligentnych wskaźników.
+C++ jest językiem ogólnego przeznaczenia wspierającym wiele paradygmatów. Jego główną zaletą jest szybkość kodu, wynikająca głównie z~kompilacji do kodu maszynowego. C++ jest silnie typowany, przez co wiele błędów można wykryć na etapie kompilacji kodu. Niewątpliwą zaletą tego języka jest rozbudowany system szablonów, który pozwala na wykorzystanie zaawansowanych technik metaprogramowania. W \cite{Cpp_turing_complete} wykazano, że szablony C++ są kompletne w sensie Turinga. Oznacza to, że można w nich zaimplementować dowolny algorytm z klasy obliczeniowej rozwiązywalnej na maszynie Turinga. Ciekawym projektem jest \cite{Cpp_snake_compile_time}, gdzie zaimplementowano popularną grę Snake z wykorzystaniem szablonów. Polecenia ruchu są zadawane w czasie kompilacji i jednocześnie w trakcie kompilacji są dokonywane wszystkie obliczenia. Restrykcyjność języka może być powodem wolniejszego tempa implementacji w C++. Dodatkowo operacje na zasobach są jedną z najbardziej niebezpiecznych aspektów tego języka. C++ nie posiada garbage collectora, przez co na programiście ciąży obowiązek zwalniania zaalokowanych zasobów. Istnieją w C++ mechanizmy umożliwiające bezpieczne zarządzanie zasobami, jednakże ich stosowanie wymaga dużego nakładu dyscypliny (przykładowo według Scotta Mayersa najważniejszym wynalazkiem języka jest destruktor, który umożliwił pojawienie się idiomu RAII). Pojawienie się nowszych standardów znacząco poprawiło wygodę programistów i bezpieczeństwo operowania na zasobach, przez np. dodanie inteligentnych wskaźników.
 
 \paragraph{Java}
-Java to język w pełni obiektowy, kompilowany do kodu bajtowego. Pełna obiektowość języka oznacza konieczność przynależności zmiennych i funkcji do klas. Nie jest możliwe zadeklarowanie osobnych zmiennych jak to jest możliwe np. w C++. Maszyna wirtualna Javy posiada wiele mechanizmów pozwalających na zwiększenie efektywności programów, takich jak JIT compiler, przez co Java zyskała na popularności w aplikacjach działających po stronie serwera. Dodatkowo wykorzystanie grabage collectora pozwala zmniejsza odpowiedzialność programisty, co przyczynia się do zwiększenia popularności języka.
+Java to język w pełni obiektowy, kompilowany do kodu bajtowego. Pełna obiektowość języka oznacza konieczność przynależności zmiennych i~funkcji do klas. Nie jest możliwe zadeklarowanie osobnych zmiennych jak to jest możliwe np. w C++. Maszyna wirtualna Javy posiada wiele mechanizmów pozwalających na zwiększenie efektywności programów, takich jak JIT compiler, przez co Java zyskała na popularności w aplikacjach działających po stronie serwera. Dodatkowo wykorzystanie garbage collectora pozwala zmniejsza odpowiedzialność programisty, co przyczynia się do zwiększenia popularności języka.
 
 \paragraph{C\#}
-C\# jest podobnie jak Java językiem czysto obiektowym kompilowanym w pierwszym etapie do kodu pośredniego (IL - intermediate language), a następnie do kodu maszynowego za pomocą kompilatora JIT. C\# jest oparty na frameworku .NET.
+C\# jest podobnie jak Java językiem czysto obiektowym kompilowanym w pierwszym etapie do kodu pośredniego (IL - intermediate language), a~następnie do kodu maszynowego za pomocą kompilatora JIT (Just In Time). C\# jest oparty na frameworku .NET.
 
 \subsection{Wybór środowisk i narzędzi}
 Do realizacji projektu wybrano język Java, czego motywacją była przede wszystkim jego pełna obiektowość, która pozwala na dogodną implementację zaprojektowanej architektury.
